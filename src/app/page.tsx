@@ -300,7 +300,7 @@ export default function Home() {
               <div className="eyebrow" style={{ marginBottom: 22 }}>Selected work</div>
               <h2>Shipped,<br />in the wild.</h2>
             </div>
-            <p>A sample of recent engagements across fintech, health, logistics, and internal tooling. <Link href="/projects" style={{ color: 'var(--ink)', textDecoration: 'underline', textUnderlineOffset: 4 }}>See all projects →</Link></p>
+            <p>A sample of recent engagements across fintech, health, logistics, and internal tooling. <Link href="/projects" style={{ color: 'var(--ink)', textDecoration: 'underline', textUnderlineOffset: 4 }}>See all projects <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline', verticalAlign: 'middle' }}><path d="M7 17L17 7" /><path d="M10 7h7v7" /></svg></Link></p>
           </div>
           <div className="showcase-grid reveal-stagger">
             <a href="https://nirnayaknews.com/" target="_blank" rel="noopener noreferrer" className="showcase-card">

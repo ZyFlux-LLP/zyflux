@@ -2,6 +2,14 @@ import Link from 'next/link'
 import ZyfluxLogo from './ZyfluxLogo'
 import CalButton from './CalButton'
 
+function ExtArrow() {
+  return (
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline', verticalAlign: 'middle', marginLeft: 4 }}>
+      <path d="M7 17L17 7" /><path d="M10 7h7v7" />
+    </svg>
+  )
+}
+
 export default function Footer() {
   return (
     <footer className="footer">
@@ -37,8 +45,8 @@ export default function Footer() {
             <ul>
               <li><a href="mailto:hello@zyflux.com">hello@zyflux.com</a></li>
               <li><CalButton>Schedule a meeting</CalButton></li>
-              <li><a href="#">LinkedIn ↗</a></li>
-              <li><a href="#">GitHub ↗</a></li>
+              <li><a href="#">LinkedIn<ExtArrow /></a></li>
+              <li><a href="#">GitHub<ExtArrow /></a></li>
             </ul>
           </div>
         </div>

@@ -190,7 +190,7 @@ export default function ProjectsClient() {
               )}
               {p.url && (
                 <a href={p.url} target="_blank" rel="noopener noreferrer" className="p-live-link">
-                  View live →
+                  View live <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline', verticalAlign: 'middle' }}><path d="M7 17L17 7" /><path d="M10 7h7v7" /></svg>
                 </a>
               )}
             </div>
