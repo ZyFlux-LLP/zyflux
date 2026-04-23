@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import type { Metadata } from 'next'
 import CalButton from '@/components/CalButton'
 
@@ -121,37 +120,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section id="careers" style={{ borderTop: '1px solid var(--line-soft)' }}>
-        <div className="container">
-          <div className="section-head reveal">
-            <div>
-              <div className="eyebrow" style={{ marginBottom: 22 }}>Careers &amp; press</div>
-              <h2>Open roles<br />and things we&apos;ve been part of.</h2>
-            </div>
-            <p>We hire slowly and for range. If you&apos;ve shipped products end-to-end and want to do it in a small team again, come say hi.</p>
-          </div>
-          <div className="two-col reveal-stagger">
-            <div className="list-card">
-              <h3>Open roles</h3>
-              <ul>
-                <li><Link href="/contact">Senior Product Engineer</Link><span className="meta">Remote · IST/CET</span></li>
-                <li><Link href="/contact">Staff Design Systems Engineer</Link><span className="meta">Bengaluru · Hybrid</span></li>
-                <li><Link href="/contact">AI Engineer</Link><span className="meta">Remote</span></li>
-                <li><Link href="/contact">Product Ops Lead</Link><span className="meta">Berlin · Hybrid</span></li>
-              </ul>
-            </div>
-            <div className="list-card" id="press">
-              <h3>In the press</h3>
-              <ul>
-                <li><a href="#">How Zyflux ran a 12-week platform build ↗</a><span className="meta">The Next Build · 2025</span></li>
-                <li><a href="#">Small studios, real products ↗</a><span className="meta">Offscreen Mag · 2025</span></li>
-                <li><a href="#">Dispatch: a week inside Zyflux ↗</a><span className="meta">Sidebar · 2024</span></li>
-                <li><a href="#">The flow-first engineering pod ↗</a><span className="meta">Product Hunt · 2024</span></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section>
         <div className="container">
@@ -160,7 +128,7 @@ export default function AboutPage() {
             <h2>Want to see how we actually work?<br />Hop on a call.</h2>
             <p>30 minutes, no deck. We&apos;ll walk through a live engagement dashboard and answer anything.</p>
             <CalButton className="btn btn-primary magnetic">
-              Schedule a meeting
+              Schedule a call
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M7 17L17 7M10 7h7v7" /></svg>
             </CalButton>
           </div>
