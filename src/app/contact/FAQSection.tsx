@@ -26,7 +26,15 @@ const faqs = [
 ]
 
 export default function FAQSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0)
+  const [openSet, setOpenSet] = useState<Set<number>>(new Set([0]))
+
+  const toggle = (i: number) => {
+    setOpenSet(prev => {
+      const next = new Set(prev)
+      next.has(i) ? next.delete(i) : next.add(i)
+      return next
+    })
+  }
 
   return (
     <section className="faq">
@@ -39,11 +47,11 @@ export default function FAQSection() {
 
           <div className="reveal-stagger">
             {faqs.map((item, i) => (
-              <div key={i} className={`faq-item${openIndex === i ? ' open' : ''}`}>
+              <div key={i} className={`faq-item${openSet.has(i) ? ' open' : ''}`}>
                 <button
                   className="faq-summary"
-                  onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                  aria-expanded={openIndex === i}
+                  onClick={() => toggle(i)}
+                  aria-expanded={openSet.has(i)}
                 >
                   <span>{item.q}</span>
                   <span className="plus">+</span>
