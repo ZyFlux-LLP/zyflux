@@ -12,12 +12,33 @@ function SocialArrow() {
 
 export const metadata: Metadata = {
   title: 'Contact — Zyflux',
-  description: 'Tell us about the product. We\'ll send back a plan.',
+  description:
+    'Contact Zyflux LLP — a product engineering studio in Navi Mumbai. Reach us at team@zyflux.com or call +91 70213 09381. Typical projects start within two weeks.',
+  alternates: { canonical: '/contact' },
+  openGraph: {
+    title: 'Contact — Zyflux',
+    description:
+      'Contact Zyflux LLP — a product engineering studio in Navi Mumbai. Reach us at team@zyflux.com or call +91 70213 09381. Typical projects start within two weeks.',
+    url: 'https://zyflux.com/contact',
+  },
 }
 
 export default function ContactPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://zyflux.com' },
+              { '@type': 'ListItem', position: 2, name: 'Contact', item: 'https://zyflux.com/contact' },
+            ],
+          }),
+        }}
+      />
       <section className="page-hero">
         <div className="container">
           <div className="eyebrow page-hero-eyebrow" style={{ marginBottom: 28 }}>Contact</div>
@@ -35,20 +56,20 @@ export default function ContactPage() {
             <aside className="reveal">
               <div className="info-block">
                 <h4>Email</h4>
-                <div className="big"><a href="mailto:hello@zyflux.com">hello@zyflux.com</a></div>
+                <div className="big"><a href="mailto:team@zyflux.com">team@zyflux.com</a></div>
                 <div className="sub">New projects, press, hiring.</div>
               </div>
               <div className="info-block">
                 <h4>Already a client?</h4>
-                <div className="big"><a href="mailto:ops@zyflux.com">ops@zyflux.com</a></div>
+                <div className="big"><a href="mailto:support@zyflux.com">support@zyflux.com</a></div>
                 <div className="sub">24/7 for production issues.</div>
               </div>
               <div className="info-block">
                 <div className="info-row">
                   <div>
                     <h4>Response time</h4>
-                    <div className="big" style={{ fontSize: 18 }}>&lt; 24 hours</div>
-                    <div className="sub">Business days, IST/CET.</div>
+                    <div className="big" style={{ fontSize: 18 }}>&lt; 2 hours</div>
+                    <div className="sub">Business days, IST.</div>
                   </div>
                   <div>
                     <h4>Availability</h4>
@@ -58,12 +79,17 @@ export default function ContactPage() {
                 </div>
               </div>
               <div className="info-block">
+                <h4>Phone</h4>
+                <div className="big" style={{ fontSize: 17 }}><a href="tel:+917021309381">+91 70213 09381</a></div>
+                <div className="sub">Also on WhatsApp.</div>
+              </div>
+              <div className="info-block">
                 <h4>Socials</h4>
                 <div className="big" style={{ fontSize: 17, display: 'flex', flexDirection: 'column', gap: 10 }}>
-                  <a href="#" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>LinkedIn <SocialArrow /></a>
-                  <a href="#" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>GitHub <SocialArrow /></a>
-                  <a href="#" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>Twitter <SocialArrow /></a>
-                  <a href="#" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>Dribbble <SocialArrow /></a>
+                  <a href="https://linkedin.com/company/zyflux" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>LinkedIn <SocialArrow /></a>
+                  <a href="https://github.com/ZyFlux-LLP" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>GitHub <SocialArrow /></a>
+                  <a href="https://twitter.com/zyflux_com" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>Twitter <SocialArrow /></a>
+                  <a href="https://instagram.com/zyflux_com" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>Instagram <SocialArrow /></a>
                 </div>
               </div>
             </aside>
@@ -78,26 +104,25 @@ export default function ContactPage() {
         <div className="container">
           <div className="section-head reveal" style={{ marginBottom: 36 }}>
             <div>
-              <div className="eyebrow" style={{ marginBottom: 22 }}>Studios</div>
-              <h2>Three time zones,<br />one team.</h2>
+              <div className="eyebrow" style={{ marginBottom: 22 }}>Studio</div>
+              <h2>Based in Navi Mumbai,<br />working globally.</h2>
             </div>
-            <p>We cover IST and CET business hours natively, and overlap with US Eastern late morning through afternoon.</p>
+            <p>We operate on IST business hours and take on clients across India, Europe, and the US.</p>
           </div>
           <div className="locations reveal">
             <div className="loc">
-              <div className="city">Bengaluru</div>
+              <div className="city">Navi Mumbai</div>
               <div className="tz">IST · UTC+5:30</div>
-              <div className="addr">HSR Layout, Sector 6<br />Bengaluru, Karnataka 560102<br />India</div>
+              <div className="addr">H-3/1001 Valley Shilp CHS<br />Kharghar, Sector 36<br />Navi Mumbai, Maharashtra 410210<br />India</div>
             </div>
-            <div className="loc">
-              <div className="city">Pune</div>
-              <div className="tz">IST · UTC+5:30</div>
-              <div className="addr">Koregaon Park Annexe<br />Pune, Maharashtra 411001<br />India</div>
-            </div>
-            <div className="loc">
-              <div className="city">Berlin</div>
-              <div className="tz">CET · UTC+1</div>
-              <div className="addr">Mitte, near Rosenthaler Platz<br />10119 Berlin<br />Germany</div>
+            <div className="loc-map">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.5956853954785!2d73.06854427521031!3d19.08150615179964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c18139101f95%3A0x2bdb68cf0702d4cb!2sZyflux%20LLP!5e0!3m2!1sen!2sin!4v1777237897976!5m2!1sen!2sin"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Zyflux LLP office location"
+              />
             </div>
           </div>
         </div>

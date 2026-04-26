@@ -27,7 +27,7 @@ export default function ContactForm() {
       <div className="success show">
         <div className="tick">✓</div>
         <h3>Brief received.</h3>
-        <p>You&apos;ll hear back from Kavya or Aarav within one business day — usually same day IST/CET.</p>
+        <p>You&apos;ll hear back within one business day — usually within 2 hours IST.</p>
       </div>
     )
   }

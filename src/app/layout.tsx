@@ -23,9 +23,22 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Zyflux — Engineering the flow of modern software',
+  metadataBase: new URL('https://zyflux.com'),
+  title: {
+    default: 'Zyflux — Engineering the flow of modern software',
+    template: '%s — Zyflux',
+  },
   description:
-    'A product engineering studio building ERP, CRM, ecommerce, apps, and digital marketing for teams that care about craft and velocity.',
+    'Zyflux is a product engineering studio in Navi Mumbai — building custom ERP, CRM, ecommerce platforms, Flutter apps, and digital marketing for startups and enterprises.',
+  openGraph: {
+    type: 'website',
+    siteName: 'Zyflux',
+    locale: 'en_IN',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@zyflux_com',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -42,6 +55,44 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <SharedInteractions />
         <GSAPAnimations />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'Zyflux LLP',
+              url: 'https://zyflux.com',
+              logo: 'https://zyflux.com/zyflux-logo.png',
+              description:
+                'Product engineering studio building custom ERP, CRM, ecommerce platforms, Flutter apps, and digital marketing.',
+              foundingDate: '2023',
+              email: 'team@zyflux.com',
+              telephone: '+917021309381',
+              address: {
+                '@type': 'PostalAddress',
+                streetAddress: 'H-3/1001 Valley Shilp CHS, Kharghar, Sector 36',
+                addressLocality: 'Navi Mumbai',
+                addressRegion: 'Maharashtra',
+                postalCode: '410210',
+                addressCountry: 'IN',
+              },
+              sameAs: [
+                'https://linkedin.com/company/zyflux',
+                'https://twitter.com/zyflux_com',
+                'https://instagram.com/zyflux_com',
+                'https://github.com/ZyFlux-LLP',
+              ],
+              contactPoint: {
+                '@type': 'ContactPoint',
+                telephone: '+917021309381',
+                email: 'team@zyflux.com',
+                contactType: 'sales',
+                availableLanguage: 'English',
+              },
+            }),
+          }}
+        />
       </body>
     </html>
   )

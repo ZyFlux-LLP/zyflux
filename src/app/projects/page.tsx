@@ -4,12 +4,33 @@ import ProjectsClient from './ProjectsClient'
 
 export const metadata: Metadata = {
   title: 'Projects — Zyflux',
-  description: 'Eight selected engagements across fintech, logistics, health, AI, and public-sector work.',
+  description:
+    'Selected client projects by Zyflux LLP — fintech, media, hospitality, health-tech, and AI. Custom ERP, CRM, ecommerce, and mobile apps built and shipped.',
+  alternates: { canonical: '/projects' },
+  openGraph: {
+    title: 'Projects — Zyflux',
+    description:
+      'Selected client projects by Zyflux LLP — fintech, media, hospitality, health-tech, and AI. Custom ERP, CRM, ecommerce, and mobile apps built and shipped.',
+    url: 'https://zyflux.com/projects',
+  },
 }
 
 export default function ProjectsPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://zyflux.com' },
+              { '@type': 'ListItem', position: 2, name: 'Projects', item: 'https://zyflux.com/projects' },
+            ],
+          }),
+        }}
+      />
       <section className="page-hero">
         <div className="container">
           <div className="eyebrow page-hero-eyebrow" style={{ marginBottom: 28 }}>Projects · 2023–2026</div>

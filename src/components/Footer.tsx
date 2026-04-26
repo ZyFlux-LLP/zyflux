@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import ZyfluxLogo from './ZyfluxLogo'
-import CalButton from './CalButton'
 
 function ExtArrow() {
   return (
@@ -20,33 +19,28 @@ export default function Footer() {
               <ZyfluxLogo size={32} />
               <span>Zyflux</span>
             </div>
-            <p className="footer-tag">A product engineering studio building the digital backbone for ambitious teams.</p>
-          </div>
-          <div className="footer-col">
-            <h4>Studio</h4>
-            <ul>
-              <li><Link href="/about">About</Link></li>
-              <li><Link href="/projects">Projects</Link></li>
-              <li><Link href="/about#careers">Careers</Link></li>
-              <li><Link href="/about#press">Press</Link></li>
-            </ul>
+            <p className="footer-tag">H-3/1001 Valley Shilp CHS<br />Kharghar, Sector 36<br />Navi Mumbai, Maharashtra 410210</p>
           </div>
           <div className="footer-col">
             <h4>Services</h4>
             <ul>
-              <li><Link href="/#services">ERP &amp; CRM</Link></li>
-              <li><Link href="/#services">Ecommerce</Link></li>
-              <li><Link href="/#services">Flutter apps</Link></li>
-              <li><Link href="/#services">Digital marketing</Link></li>
+              <li><Link href="/#services">ERP Systems</Link></li>
+              <li><Link href="/#services">CRM Platforms</Link></li>
+              <li><Link href="/#services">Web Platforms</Link></li>
+              <li><Link href="/#services">Mobile Apps</Link></li>
+              <li><Link href="/#services">AI &amp; Agents</Link></li>
+              <li><Link href="/#services">Digital Marketing</Link></li>
             </ul>
           </div>
           <div className="footer-col">
             <h4>Contact</h4>
             <ul>
-              <li><a href="mailto:hello@zyflux.com">hello@zyflux.com</a></li>
-              <li><CalButton>Schedule a meeting</CalButton></li>
-              <li><a href="#">LinkedIn<ExtArrow /></a></li>
-              <li><a href="#">GitHub<ExtArrow /></a></li>
+              <li><a href="mailto:team@zyflux.com">team@zyflux.com</a></li>
+              <li><a href="tel:+917021309381">+91 70213 09381</a></li>
+              <li><a href="https://linkedin.com/company/zyflux" target="_blank" rel="noopener noreferrer">LinkedIn<ExtArrow /></a></li>
+              <li><a href="https://twitter.com/zyflux_com" target="_blank" rel="noopener noreferrer">Twitter / X<ExtArrow /></a></li>
+              <li><a href="https://github.com/ZyFlux-LLP" target="_blank" rel="noopener noreferrer">GitHub<ExtArrow /></a></li>
+              <li><a href="https://instagram.com/zyflux_com" target="_blank" rel="noopener noreferrer">Instagram<ExtArrow /></a></li>
             </ul>
           </div>
         </div>

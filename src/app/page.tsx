@@ -4,6 +4,15 @@ import CalButton from '@/components/CalButton'
 
 export const metadata: Metadata = {
   title: 'Zyflux — Engineering the flow of modern software',
+  description:
+    'Zyflux is a product engineering studio in Navi Mumbai — building custom ERP, CRM, ecommerce platforms, Flutter apps, and digital marketing for startups and enterprises.',
+  alternates: { canonical: '/' },
+  openGraph: {
+    title: 'Zyflux — Engineering the flow of modern software',
+    description:
+      'Zyflux is a product engineering studio in Navi Mumbai — building custom ERP, CRM, ecommerce platforms, Flutter apps, and digital marketing for startups and enterprises.',
+    url: 'https://zyflux.com',
+  },
 }
 
 function ArrowIcon() {
@@ -77,23 +86,23 @@ export default function Home() {
           {/* Metrics */}
           <div className="metrics reveal">
             <div className="metric">
-              <div className="n"><span data-count="60" data-suffix="+">0+</span></div>
+              <div className="n"><span data-count="60" data-suffix="+">60+</span></div>
               <div className="l">Products shipped</div>
             </div>
             <div className="metric">
-              <div className="n"><span data-count="24">0</span></div>
+              <div className="n"><span data-count="24">24</span></div>
               <div className="l">Active engagements</div>
             </div>
             <div className="metric">
               <div className="n">
-                <span data-count="9">0</span>
+                <span data-count="9">9</span>
                 <span style={{ fontSize: '0.5em', color: 'var(--ink-dim)' }}>mo</span>
               </div>
               <div className="l">Avg. build time</div>
             </div>
             <div className="metric">
               <div className="n">
-                <span data-count="4.9" data-decimals="1">0</span>
+                <span data-count="4.9" data-decimals="1">4.9</span>
                 <span style={{ fontSize: '0.5em', color: 'var(--ink-dim)' }}>/5</span>
               </div>
               <div className="l">Client rating</div>
@@ -269,22 +278,22 @@ export default function Home() {
           </div>
           <div className="process-grid reveal-stagger">
             <div className="process-step">
-              <div className="process-num">/ 01 — Week 1</div>
+              <div className="process-num">/ 01</div>
               <h3>Scope &amp; align</h3>
               <p>We map the problem space, constraints, and what &quot;done&quot; looks like. Fixed-price discovery sprint.</p>
             </div>
             <div className="process-step">
-              <div className="process-num">/ 02 — Weeks 2–4</div>
+              <div className="process-num">/ 02</div>
               <h3>Design in code</h3>
               <p>Prototypes in the real runtime — no Figma-to-code translation debt. You click what you&apos;ll ship.</p>
             </div>
             <div className="process-step">
-              <div className="process-num">/ 03 — Weeks 4–12+</div>
+              <div className="process-num">/ 03</div>
               <h3>Build &amp; ship</h3>
               <p>Weekly production releases. You see progress in the product, not in a burndown chart.</p>
             </div>
             <div className="process-step">
-              <div className="process-num">/ 04 — Ongoing</div>
+              <div className="process-num">/ 04</div>
               <h3>Operate &amp; evolve</h3>
               <p>Long-term partnership: observability, iteration, on-call, and roadmap planning with your team.</p>
             </div>

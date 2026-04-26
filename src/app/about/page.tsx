@@ -3,24 +3,40 @@ import CalButton from '@/components/CalButton'
 
 export const metadata: Metadata = {
   title: 'About — Zyflux',
-  description: 'A small studio, building serious software since 2023. Fourteen engineers, designers, and product operators.',
+  description:
+    'Zyflux LLP is a product engineering studio founded in 2023, based in Navi Mumbai. We design and build custom ERP, CRM, ecommerce platforms, and mobile apps for product-led teams.',
+  alternates: { canonical: '/about' },
+  openGraph: {
+    title: 'About — Zyflux',
+    description:
+      'Zyflux LLP is a product engineering studio founded in 2023, based in Navi Mumbai. We design and build custom ERP, CRM, ecommerce platforms, and mobile apps for product-led teams.',
+    url: 'https://zyflux.com/about',
+  },
 }
 
 const team = [
-  { initials: 'AR', name: 'Aarav R.', role: 'Co-founder · Engineering', color: 'p-a' },
-  { initials: 'KN', name: 'Kavya N.', role: 'Co-founder · Product', color: 'p-b' },
-  { initials: 'SD', name: 'Sid D.', role: 'Co-founder · Design', color: 'p-c' },
-  { initials: 'MI', name: 'Meher I.', role: 'Staff Engineer', color: 'p-d' },
-  { initials: 'RT', name: 'Rohan T.', role: 'Cloud & Platform', color: 'p-e' },
-  { initials: 'NV', name: 'Nadia V.', role: 'Design Systems', color: 'p-f' },
-  { initials: 'JP', name: 'Joel P.', role: 'Mobile Lead', color: 'p-g' },
-  { initials: 'IS', name: 'Ira S.', role: 'AI Engineering', color: 'p-h' },
+  { initials: 'AG', name: 'Arpit Gupta', role: 'Co-founder · Partner', color: 'p-a' },
+  { initials: 'VS', name: 'Vatsal Sharma', role: 'Co-founder · Partner', color: 'p-b' },
+  { initials: 'AC', name: 'Aditya Chauhan', role: 'Co-founder · Partner', color: 'p-c' },
 ]
 
 
 export default function AboutPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://zyflux.com' },
+              { '@type': 'ListItem', position: 2, name: 'About', item: 'https://zyflux.com/about' },
+            ],
+          }),
+        }}
+      />
       <section className="page-hero">
         <div className="container">
           <div className="eyebrow page-hero-eyebrow" style={{ marginBottom: 28 }}>About Zyflux LLP</div>
@@ -28,7 +44,7 @@ export default function AboutPage() {
             <span className="line"><span>A small studio,</span></span>
             <span className="line"><span>building serious software since 2023.</span></span>
           </h1>
-          <p className="page-hero-sub">Fourteen engineers, designers, and product operators — distributed across Bengaluru, Pune, and Berlin. We pick a few engagements at a time and give them the whole team.</p>
+          <p className="page-hero-sub">Three co-founders, one studio — based in Navi Mumbai, working with clients across India, Europe, and the US. We pick a few engagements at a time and give them everything we have.</p>
         </div>
       </section>
 
@@ -66,9 +82,9 @@ export default function AboutPage() {
           <div className="section-head reveal">
             <div>
               <div className="eyebrow" style={{ marginBottom: 22 }}>Team</div>
-              <h2>Fourteen people,<br />no junior/senior split.</h2>
+              <h2>Three partners,<br />one shared vision.</h2>
             </div>
-            <p>Everyone here has shipped products end-to-end. Titles are descriptive, not hierarchical.</p>
+            <p>Every engagement is led directly by a founding partner — no account managers, no hand-offs.</p>
           </div>
           <div className="team reveal-stagger">
             {team.map((m) => (
