@@ -111,13 +111,6 @@ export async function POST(req: Request) {
   const [firstname, ...rest] = name.trim().split(' ')
   const lastname = rest.join(' ')
 
-  // Build description from project details so everything lands on the contact record
-  const description = [
-    projectType && `Project type: ${projectType}`,
-    budget      && `Budget: ${budget}`,
-    brief.trim() && `Brief: ${brief.trim()}`,
-  ].filter(Boolean).join(' · ')
-
   const errors: string[] = []
 
   // 1. HubSpot contact upsert (crm.objects.contacts.write only)
@@ -127,7 +120,6 @@ export async function POST(req: Request) {
     lastname,
     company,
     jobtitle:       role,
-    description,
     lifecyclestage: 'lead',
     hs_lead_status: 'NEW',
   }).catch((e: Error) => errors.push(`HubSpot: ${e.message}`))
