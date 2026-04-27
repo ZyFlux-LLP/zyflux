@@ -6,10 +6,11 @@ const NOTIFY_EMAIL = process.env.NOTIFY_EMAIL ?? 'team@zyflux.com'
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null
 
-// ─── HubSpot helpers ────────────────────────────────────────────────────────
+// ─── HubSpot ─────────────────────────────────────────────────────────────────
+// Only scope needed: crm.objects.contacts.write
 
-async function upsertContact(props: Record<string, string>): Promise<string | null> {
-  if (!HS_TOKEN) return null
+async function upsertContact(props: Record<string, string>): Promise<void> {
+  if (!HS_TOKEN) return
 
   const res = await fetch('https://api.hubapi.com/crm/v3/objects/contacts', {
     method: 'POST',
@@ -17,48 +18,27 @@ async function upsertContact(props: Record<string, string>): Promise<string | nu
     body: JSON.stringify({ properties: props }),
   })
 
-  if (res.ok) {
-    const data = await res.json()
-    return data.id as string
-  }
+  if (res.ok) return
 
   if (res.status === 409) {
     const err = await res.json()
-    // Extract the existing contact ID from the error message
+    // Extract the existing contact ID and patch it with the latest data
     const match = (err.message as string | undefined)?.match(/Existing ID:\s*(\d+)/)
-    const existingId = match?.[1] ?? null
+    const existingId = match?.[1]
     if (existingId) {
-      // Update the existing contact with latest data (excluding email)
-      const { email: _email, ...updateProps } = props
-      void _email
+      const { email: _e, ...updateProps } = props
+      void _e
       await fetch(`https://api.hubapi.com/crm/v3/objects/contacts/${existingId}`, {
         method: 'PATCH',
         headers: { Authorization: `Bearer ${HS_TOKEN}`, 'Content-Type': 'application/json' },
         body: JSON.stringify({ properties: { ...updateProps, hs_lead_status: 'NEW' } }),
       })
     }
-    return existingId
+    return
   }
 
-  return null
-}
-
-async function addNote(contactId: string, body: string) {
-  if (!HS_TOKEN) return
-  await fetch('https://api.hubapi.com/crm/v3/objects/notes', {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${HS_TOKEN}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      properties: {
-        hs_note_body: body,
-        hs_timestamp: new Date().toISOString(),
-      },
-      associations: [{
-        to: { id: contactId },
-        types: [{ associationCategory: 'HUBSPOT_DEFINED', associationTypeId: 202 }],
-      }],
-    }),
-  })
+  const text = await res.text()
+  throw new Error(`HubSpot ${res.status}: ${text}`)
 }
 
 // ─── Email template ──────────────────────────────────────────────────────────
@@ -67,7 +47,7 @@ function row(label: string, value: string) {
   if (!value) return ''
   return `
     <tr>
-      <td style="padding:10px 0;border-bottom:1px solid #1e1e1e;vertical-align:top">
+      <td style="padding:10px 0;border-bottom:1px solid #1e1e1e;vertical-align:top;width:120px">
         <span style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#555;font-family:monospace">${label}</span>
       </td>
       <td style="padding:10px 0 10px 24px;border-bottom:1px solid #1e1e1e;color:#e0e0e0;font-size:14px;vertical-align:top;white-space:pre-wrap">${value}</td>
@@ -96,13 +76,13 @@ function buildEmail(fields: {
       <table style="width:100%;border-collapse:collapse">
         ${row('Email', email)}
         ${row('Role', role)}
-        ${row('Project type', projectType)}
+        ${row('Project', projectType)}
         ${row('Budget', budget)}
         ${row('Brief', brief)}
       </table>
     </div>
 
-    <div style="padding:20px 40px 32px;display:flex;gap:12px">
+    <div style="padding:20px 40px 32px">
       <a href="mailto:${email}" style="display:inline-block;padding:10px 20px;background:#fff;color:#000;font-size:13px;font-weight:500;border-radius:6px;text-decoration:none">Reply to ${name.split(' ')[0]}</a>
     </div>
 
@@ -131,45 +111,39 @@ export async function POST(req: Request) {
   const [firstname, ...rest] = name.trim().split(' ')
   const lastname = rest.join(' ')
 
+  // Build description from project details so everything lands on the contact record
+  const description = [
+    projectType && `Project type: ${projectType}`,
+    budget      && `Budget: ${budget}`,
+    brief.trim() && `Brief: ${brief.trim()}`,
+  ].filter(Boolean).join(' · ')
+
   const errors: string[] = []
 
-  // 1. HubSpot contact upsert
-  const contactId = await upsertContact({
-    email: email.trim().toLowerCase(),
+  // 1. HubSpot contact upsert (crm.objects.contacts.write only)
+  await upsertContact({
+    email:          email.trim().toLowerCase(),
     firstname,
     lastname,
     company,
-    jobtitle: role,
+    jobtitle:       role,
+    description,
     lifecyclestage: 'lead',
     hs_lead_status: 'NEW',
-  }).catch((e) => { errors.push(`HubSpot contact: ${e.message}`); return null })
+  }).catch((e: Error) => errors.push(`HubSpot: ${e.message}`))
 
-  // 2. HubSpot note with project details
-  if (contactId) {
-    const noteParts = [
-      projectType && `Project type: ${projectType}`,
-      budget      && `Budget: ${budget}`,
-      brief.trim() && `Brief:\n${brief.trim()}`,
-    ].filter(Boolean).join('\n\n')
-
-    if (noteParts) {
-      await addNote(contactId, noteParts).catch((e) => errors.push(`HubSpot note: ${e.message}`))
-    }
-  }
-
-  // 3. Email notification
+  // 2. Email notification
   if (resend) {
     await resend.emails.send({
-      from: 'Zyflux Leads <leads@zyflux.com>',
-      to: [NOTIFY_EMAIL],
+      from:    'Zyflux Leads <leads@zyflux.com>',
+      to:      [NOTIFY_EMAIL],
       replyTo: email.trim(),
       subject: `New brief — ${name}${company ? ` · ${company}` : ''}`,
-      html: buildEmail({ name, email, company, role, projectType, budget, brief }),
+      html:    buildEmail({ name, email, company, role, projectType, budget, brief }),
     }).catch((e) => errors.push(`Email: ${(e as Error).message}`))
   }
 
   if (errors.length) console.error('[contact] partial failures:', errors)
 
-  // Always return 200 to the user — integrations failing shouldn't block submission
   return NextResponse.json({ ok: true })
 }
