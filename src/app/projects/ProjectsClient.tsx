@@ -52,7 +52,7 @@ const projects: {
     url: 'https://www.mumbaimeridians.com/',
   },
   {
-    id: 5, cat: 'web' as Category, size: 'sm',
+    id: 5, cat: 'web' as Category, size: 'md',
     meta: '05 · Construction & Steel · Live', client: 'Metal Barns India',
     thumb: 't-steel',
     title: 'Metal Barns India — pre-engineered steel buildings',
@@ -89,7 +89,7 @@ const projects: {
     stats: [{ n: '94%', l: 'Accuracy rate' }, { n: '96%', l: 'User satisfaction' }, { n: '12h', l: 'Battery life' }],
   },
   {
-    id: 9, cat: 'mobile' as Category, size: 'sm',
+    id: 9, cat: 'mobile' as Category, size: 'md',
     meta: '09 · Premium Dating · Live', client: 'Consulting Wizz',
     thumb: 't-privacy',
     title: 'Illuzn — privacy-first dating platform',
@@ -98,7 +98,7 @@ const projects: {
     stats: null,
   },
   {
-    id: 10, cat: 'web' as Category, size: 'sm',
+    id: 10, cat: 'web' as Category, size: 'md',
     meta: '10 · Media Sharing · Live', client: 'YouShare',
     thumb: 't-social',
     title: 'YouShare — social media web app',
@@ -107,7 +107,7 @@ const projects: {
     stats: null,
   },
   {
-    id: 11, cat: 'other' as Category, size: 'sm',
+    id: 11, cat: 'other' as Category, size: 'md',
     meta: '11 · Developer Tool · Live', client: 'Zyflux Labs',
     thumb: 't-compress',
     title: 'Image Compressor — cross-platform optimisation tool',
