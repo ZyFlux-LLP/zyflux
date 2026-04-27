@@ -22,13 +22,22 @@ export default function SharedInteractions() {
       },
       { threshold: 0.4 }
     )
+
+    // Non-hero counters: fire on scroll intersection
     document.querySelectorAll<HTMLElement>('[data-count]').forEach((c) => {
-      countIO.observe(c)
+      if (!c.closest('.hero')) countIO.observe(c)
     })
 
-    return () => {
-      countIO.disconnect()
-    }
+    // Hero counters: fire after the CSS reveal animation finishes
+    document.querySelectorAll<HTMLElement>('.hero .reveal').forEach((reveal) => {
+      const onEnd = () => {
+        reveal.querySelectorAll<HTMLElement>('[data-count]').forEach(runCountUp)
+        reveal.removeEventListener('animationend', onEnd)
+      }
+      reveal.addEventListener('animationend', onEnd)
+    })
+
+    return () => { countIO.disconnect() }
   }, [pathname])
 
   // Magnetic buttons — re-attach on every navigation
