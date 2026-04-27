@@ -668,7 +668,28 @@ section { padding: 120px 0; position: relative; }
 .field input:focus, .field textarea:focus, .field select:focus { border-color: var(--accent); }
 .field input::placeholder, .field textarea::placeholder { color: var(--ink-dim); }
 .field select { appearance: none; cursor: pointer; color-scheme: dark; }
-.field.select-wrap::after { content: '▾'; position: absolute; right: 4px; bottom: 12px; color: var(--ink-dim); pointer-events: none; }
+.field.select-wrap { position: relative; }
+.field.select-wrap::after { display: none; }
+.custom-select-trigger {
+  width: 100%; display: flex; justify-content: space-between; align-items: center;
+  background: transparent; border: none; border-bottom: 1px solid var(--line);
+  color: var(--ink); padding: 10px 0 12px; font-size: 15.5px; font-family: var(--font-body);
+  text-align: left; cursor: pointer; outline: none;
+  transition: border-color .3s var(--ease);
+}
+.custom-select-trigger:focus { border-color: var(--accent); }
+.custom-select-menu {
+  position: absolute; top: calc(100% + 4px); left: 0; right: 0; z-index: 100;
+  background: var(--bg-elev); border: 1px solid var(--line-soft); border-radius: 12px;
+  padding: 6px; list-style: none; margin: 0;
+  box-shadow: 0 12px 40px oklch(0 0 0 / 0.4);
+}
+.custom-select-menu li {
+  padding: 10px 14px; border-radius: 8px; font-size: 15px; cursor: pointer;
+  color: var(--ink); transition: background .15s ease;
+}
+.custom-select-menu li:hover { background: oklch(1 0 0 / 0.06); }
+.custom-select-menu li.active { background: var(--accent); color: var(--bg); }
 .chip-group { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
 .chip { padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--ink-muted); font-size: 13px; cursor: pointer; transition: all .3s var(--ease); font-family: var(--font-body); }
 .chip:hover { color: var(--ink); border-color: oklch(1 0 0 / 0.25); }

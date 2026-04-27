@@ -4,10 +4,14 @@ import { useState } from 'react'
 
 type Group = 'type' | 'budget'
 
+const roles = ['Founder / CEO', 'Head of Product', 'Engineering Lead', 'Design Lead', 'Operator / Other']
+
 export default function ContactForm() {
   const [typeChip, setTypeChip] = useState('')
   const [budgetChip, setBudgetChip] = useState('')
   const [submitted, setSubmitted] = useState(false)
+  const [role, setRole] = useState(roles[0])
+  const [roleOpen, setRoleOpen] = useState(false)
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -72,14 +76,33 @@ export default function ContactForm() {
           <input id="company" type="text" placeholder="Company or product name" />
         </div>
         <div className="field select-wrap">
-          <label htmlFor="role">05 · Your role</label>
-          <select id="role">
-            <option>Founder / CEO</option>
-            <option>Head of Product</option>
-            <option>Engineering Lead</option>
-            <option>Design Lead</option>
-            <option>Operator / Other</option>
-          </select>
+          <label>05 · Your role</label>
+          <button
+            type="button"
+            className="custom-select-trigger"
+            onClick={() => setRoleOpen((o) => !o)}
+            aria-haspopup="listbox"
+            aria-expanded={roleOpen}
+          >
+            {role}
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transition: 'transform 0.2s', transform: roleOpen ? 'rotate(180deg)' : 'none' }}><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          {roleOpen && (
+            <ul className="custom-select-menu" role="listbox">
+              {roles.map((r) => (
+                <li
+                  key={r}
+                  role="option"
+                  aria-selected={role === r}
+                  className={role === r ? 'active' : ''}
+                  onClick={() => { setRole(r); setRoleOpen(false) }}
+                >
+                  {r}
+                </li>
+              ))}
+            </ul>
+          )}
+          <input type="hidden" name="role" value={role} />
         </div>
       </div>
 
