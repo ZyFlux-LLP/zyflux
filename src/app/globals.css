@@ -334,8 +334,8 @@ section { padding: 120px 0; position: relative; }
 .hero h1 .line { display: block; overflow: hidden; padding-bottom: 0.08em; }
 .hero h1 .line span { display: inline-block; transform: translateY(110%); }
 .hero-side { padding-bottom: 10px; display: flex; flex-direction: column; gap: 28px; }
-.hero-side p { font-size: 17px; max-width: 40ch; opacity: 0; }
-.hero-cta { display: flex; gap: 12px; flex-wrap: wrap; opacity: 0; }
+.hero-side p { font-size: 17px; max-width: 40ch; }
+.hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
 .hero-ticker {
   display: flex; align-items: center; gap: 14px; margin-top: 36px; padding: 14px 18px;
   border: 1px solid var(--line-soft); border-radius: 12px; background: oklch(0.16 0.012 230 / 0.5);
