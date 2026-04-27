@@ -255,7 +255,7 @@ export default function Home() {
                 <div className="service-tags"><span>Meta Ads</span><span>Google Ads</span><span>SEO</span><span>Social media marketing</span><span>Social media management</span></div>
               </div>
               <div className="service-visual viz-flow">
-                <svg viewBox="0 0 400 200" preserveAspectRatio="none">
+                <svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice">
                   <path d="M0,100 C80,40 160,160 240,100 S400,40 400,100" />
                   <path d="M0,130 C80,70 160,190 240,130 S400,70 400,130" style={{ opacity: 0.5 }} />
                   <path d="M0,70 C80,10 160,130 240,70 S400,10 400,70" style={{ opacity: 0.3 }} />

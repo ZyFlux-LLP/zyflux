@@ -214,11 +214,23 @@ section { padding: 120px 0; position: relative; }
 .hero .reveal:nth-of-type(2) { animation-delay: 1.25s; }
 @keyframes heroRevealIn { to { opacity: 1; transform: none; } }
 
-/* ——— Scroll reveals — GSAP animates these (below fold) ——— */
+/* ——— Scroll reveals — CSS + IntersectionObserver (below fold) ——— */
+@keyframes revealIn    { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: none; } }
+@keyframes revealInSm  { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+
 .reveal:not(.hero .reveal) { opacity: 0; }
+.reveal:not(.hero .reveal).in-view {
+  animation: revealIn 0.9s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+}
+
 .reveal-stagger > * { opacity: 0; }
+.reveal-stagger.in-view > * {
+  animation: revealInSm 0.75s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal, .reveal-stagger > * { opacity: 1; }
+  .reveal:not(.hero .reveal).in-view, .reveal-stagger.in-view > * { animation: none; }
   html { scroll-behavior: auto; }
 }
 
@@ -416,7 +428,7 @@ section { padding: 120px 0; position: relative; }
 .service.full .service-body { flex: 1.2; }
 .service.full .service-visual { flex: 1; height: 200px; }
 @media (max-width: 960px) { .services { grid-template-columns: 1fr 1fr; } .service, .service.wide { grid-column: span 1; } .service.full { grid-column: span 2; flex-direction: column; align-items: stretch; } }
-@media (max-width: 600px) { .services { grid-template-columns: 1fr; } .service, .service.wide, .service.full { grid-column: span 1; } }
+@media (max-width: 600px) { .services { grid-template-columns: 1fr; } .service, .service.wide, .service.full { grid-column: span 1; } .service.full .service-visual { height: 180px; } }
 .service-num { font-family: var(--font-mono); font-size: 11px; color: var(--ink-dim); letter-spacing: 0.18em; }
 .service h3 { margin-bottom: 12px; }
 .service p { font-size: 15px; color: var(--ink-muted); }
