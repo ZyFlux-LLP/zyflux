@@ -91,7 +91,7 @@ export default function AboutPage() {
               <div key={m.initials} className="teammate">
                 <div className={`teammate-portrait ${m.color}`} data-initials={m.initials} />
                 <div className="teammate-body">
-                  <h4>{m.name}</h4>
+                  <h3>{m.name}</h3>
                   <div className="role">{m.role}</div>
                 </div>
               </div>

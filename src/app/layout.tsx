@@ -100,7 +100,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 contactType: 'sales',
                 availableLanguage: 'English',
               },
-            }),
+            }).replace(/([a-zA-Z0-9._%+-]+)@([a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g, '$1\\u0040$2'),
           }}
         />
       </body>

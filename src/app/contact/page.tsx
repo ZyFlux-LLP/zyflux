@@ -58,29 +58,29 @@ export default function ContactPage() {
             </div>
             <aside className="contact-info reveal">
               <div className="info-block">
-                <h4>Email</h4>
+                <h2>Email</h2>
                 <div className="big"><a href="mailto:team@zyflux.com">team@zyflux.com</a></div>
                 <div className="sub">New projects, press, hiring.</div>
               </div>
               <div className="info-block">
-                <h4>Already a client?</h4>
+                <h2>Already a client?</h2>
                 <div className="big"><a href="mailto:dev@zyflux.com">dev@zyflux.com</a></div>
                 <div className="sub">24/7 for production issues.</div>
               </div>
               <div className="info-block">
-                <h4>Response time</h4>
+                <h2>Response time</h2>
                 <div className="big" style={{ fontSize: 18 }}>&lt; 2 hours</div>
                 <div className="sub">Business days, IST.</div>
               </div>
               <div className="info-block">
-                <h4>Phone</h4>
+                <h2>Phone</h2>
                 <div className="big" style={{ fontSize: 17, display: 'flex', flexDirection: 'column', gap: 10 }}>
                   <a href="tel:+917021309381">+91 70213 09381</a>
                   <a href="https://wa.me/917021309381" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>WhatsApp <SocialArrow /></a>
                 </div>
               </div>
               <div className="info-block">
-                <h4>Socials</h4>
+                <h2>Socials</h2>
                 <div className="big" style={{ fontSize: 17, display: 'flex', flexDirection: 'column', gap: 10 }}>
                   <a href="https://linkedin.com/company/zyflux" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>LinkedIn <SocialArrow /></a>
                   <a href="https://github.com/ZyFlux-LLP" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>GitHub <SocialArrow /></a>

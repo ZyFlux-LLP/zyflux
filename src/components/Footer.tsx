@@ -22,7 +22,7 @@ export default function Footer() {
             <p className="footer-tag">H-3/1001 Valley Shilp CHS<br />Kharghar, Sector 36<br />Navi Mumbai, Maharashtra 410210</p>
           </div>
           <div className="footer-col">
-            <h4>Services</h4>
+            <h3>Services</h3>
             <ul>
               <li><Link href="/#services">ERP Systems</Link></li>
               <li><Link href="/#services">CRM Platforms</Link></li>
@@ -33,7 +33,7 @@ export default function Footer() {
             </ul>
           </div>
           <div className="footer-col">
-            <h4>Contact</h4>
+            <h3>Contact</h3>
             <ul>
               <li><a href="mailto:team@zyflux.com">team@zyflux.com</a></li>
               <li><a href="tel:+917021309381">+91 70213 09381</a></li>
