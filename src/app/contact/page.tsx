@@ -64,27 +64,18 @@ export default function ContactPage() {
               </div>
               <div className="info-block">
                 <h4>Already a client?</h4>
-                <div className="big"><a href="mailto:support@zyflux.com">support@zyflux.com</a></div>
+                <div className="big"><a href="mailto:dev@zyflux.com">dev@zyflux.com</a></div>
                 <div className="sub">24/7 for production issues.</div>
               </div>
               <div className="info-block">
-                <div className="info-row">
-                  <div>
-                    <h4>Response time</h4>
-                    <div className="big" style={{ fontSize: 18 }}>&lt; 2 hours</div>
-                    <div className="sub">Business days, IST.</div>
-                  </div>
-                  <div>
-                    <h4>Availability</h4>
-                    <div className="big" style={{ fontSize: 18 }}>Q3 2026</div>
-                    <div className="sub">Small slots in June.</div>
-                  </div>
-                </div>
+                <h4>Response time</h4>
+                <div className="big" style={{ fontSize: 18 }}>&lt; 2 hours</div>
+                <div className="sub">Business days, IST.</div>
               </div>
               <div className="info-block">
                 <h4>Phone</h4>
                 <div className="big" style={{ fontSize: 17 }}><a href="tel:+917021309381">+91 70213 09381</a></div>
-                <div className="sub">Also on WhatsApp.</div>
+                <div className="sub"><a href="https://wa.me/917021309381" target="_blank" rel="noopener noreferrer">Also on WhatsApp.</a></div>
               </div>
               <div className="info-block">
                 <h4>Socials</h4>
