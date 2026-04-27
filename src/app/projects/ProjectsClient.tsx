@@ -22,7 +22,7 @@ const projects: {
     url: 'https://ind.misscallpay.com/',
   },
   {
-    id: 2, cat: 'web' as Category, size: 'lg',
+    id: 2, cat: 'web' as Category, size: 'md',
     meta: '02 · Media & Publishing · Live', client: 'Dainik Nirnayak',
     thumb: 't-dainik',
     title: 'Dainik Nirnayak CMS — newspaper production platform',
@@ -62,7 +62,7 @@ const projects: {
     url: 'https://metal-barns.vercel.app/',
   },
   {
-    id: 6, cat: 'web' as Category, size: 'lg',
+    id: 6, cat: 'web' as Category, size: 'md',
     meta: '06 · Travel & Tourism · Live', client: 'Prasthanam Holidays',
     thumb: 't-travel',
     title: 'Prasthanam Holidays — full-stack tour platform',
