@@ -24,7 +24,7 @@ export default function ContactForm() {
   }
 
   const projectTypes = ['Web platform', 'Mobile app', 'AI / agents', 'Cloud / infra', 'Design system', 'Not sure yet']
-  const budgets = ['< $25k', '$25–75k', '$75–200k', '$200k+', 'Retainer']
+  const budgets = ['₹1–5k', '₹5–10k', '₹10k+', 'Custom pricing']
 
   if (submitted) {
     return (
