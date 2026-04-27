@@ -29,12 +29,12 @@ export default function GSAPAnimations() {
         )
       }
 
-      // Hero side: paragraph, CTA, ticker — fade up staggered
+      // Hero side: slide up only — no opacity hide so LCP element is visible immediately
       const sideEls = gsap.utils.toArray<HTMLElement>('.hero-side > *')
       if (sideEls.length) {
         tl.fromTo(sideEls,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.85, stagger: 0.12 },
+          { y: 22 },
+          { y: 0, duration: 0.85, stagger: 0.12, ease: 'power3.out' },
           0.7
         )
       }

@@ -3,23 +3,28 @@ import { Space_Grotesk, Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
-import SharedInteractions from '@/components/SharedInteractions'
-import GSAPAnimations from '@/components/GSAPAnimations'
+import ClientAnimations from '@/components/ClientAnimations'
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
   variable: '--font-space-grotesk',
   display: 'swap',
+  preload: true,
 })
 const inter = Inter({
   subsets: ['latin'],
+  weight: ['400', '500'],
   variable: '--font-inter',
   display: 'swap',
+  preload: true,
 })
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
+  weight: ['400', '500'],
   variable: '--font-jetbrains',
   display: 'swap',
+  preload: false,
 })
 
 export const metadata: Metadata = {
@@ -49,12 +54,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       suppressHydrationWarning
       data-scroll-behavior="smooth"
     >
+      <head>
+        <link rel="preconnect" href="https://app.cal.com" />
+        <link rel="dns-prefetch" href="https://app.cal.com" />
+        <link rel="preconnect" href="https://maps.googleapis.com" />
+        <link rel="dns-prefetch" href="https://maps.googleapis.com" />
+      </head>
       <body>
         <Nav />
         <main>{children}</main>
         <Footer />
-        <SharedInteractions />
-        <GSAPAnimations />
+        <ClientAnimations />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

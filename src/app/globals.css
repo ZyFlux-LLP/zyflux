@@ -149,6 +149,25 @@ section { padding: 120px 0; position: relative; }
     background: oklch(0.17 0.014 260 / 0.95); backdrop-filter: blur(20px);
     border: 1px solid var(--line-soft); border-radius: 20px; padding: 10px;
     opacity: 0; pointer-events: none; transform-origin: top center;
+    transform: translateY(-10px) scale(0.96);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+  .nav-links.nav-open {
+    opacity: 1; pointer-events: auto;
+    transform: translateY(0) scale(1);
+  }
+  .nav-links.nav-open a, .nav-links.nav-open button {
+    animation: navItemIn 0.22s ease forwards;
+    opacity: 0;
+  }
+  .nav-links.nav-open a:nth-child(1), .nav-links.nav-open button:nth-child(1) { animation-delay: 0.06s; }
+  .nav-links.nav-open a:nth-child(2), .nav-links.nav-open button:nth-child(2) { animation-delay: 0.11s; }
+  .nav-links.nav-open a:nth-child(3), .nav-links.nav-open button:nth-child(3) { animation-delay: 0.16s; }
+  .nav-links.nav-open a:nth-child(4), .nav-links.nav-open button:nth-child(4) { animation-delay: 0.21s; }
+  .nav-links.nav-open a:nth-child(5), .nav-links.nav-open button:nth-child(5) { animation-delay: 0.26s; }
+  @keyframes navItemIn {
+    from { opacity: 0; transform: translateX(-10px); }
+    to   { opacity: 1; transform: translateX(0); }
   }
   .nav-cta-mobile {
     display: block; width: 100%; text-align: left;
