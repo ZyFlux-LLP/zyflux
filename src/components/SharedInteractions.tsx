@@ -28,9 +28,15 @@ export default function SharedInteractions() {
       if (!c.closest('.hero')) countIO.observe(c)
     })
 
-    // Hero counters: fire after the CSS reveal animation finishes
+    // Hero counters: reset to 0 before fade-in, then count up on animationend
     document.querySelectorAll<HTMLElement>('.hero .reveal').forEach((reveal) => {
-      const onEnd = () => {
+      reveal.querySelectorAll<HTMLElement>('[data-count]').forEach((el) => {
+        const suffix = el.dataset.suffix || ''
+        const decimals = parseInt(el.dataset.decimals || '0', 10)
+        el.textContent = (decimals ? (0).toFixed(decimals) : '0') + suffix
+      })
+      const onEnd = (e: AnimationEvent) => {
+        if (e.target !== reveal) return
         reveal.querySelectorAll<HTMLElement>('[data-count]').forEach(runCountUp)
         reveal.removeEventListener('animationend', onEnd)
       }
