@@ -12,10 +12,38 @@ export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
   const [role, setRole] = useState(roles[0])
   const [roleOpen, setRoleOpen] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setSubmitted(true)
+    setLoading(true)
+    setError('')
+
+    const fd = new FormData(e.currentTarget)
+    const body = {
+      name:        fd.get('name') as string,
+      email:       fd.get('email') as string,
+      company:     fd.get('company') as string,
+      role,
+      projectType: typeChip,
+      budget:      budgetChip,
+      brief:       fd.get('brief') as string,
+    }
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      })
+      if (!res.ok) throw new Error('submission_failed')
+      setSubmitted(true)
+    } catch {
+      setError('Something went wrong. Email us directly at team@zyflux.com')
+    } finally {
+      setLoading(false)
+    }
   }
 
   const selectChip = (group: Group, val: string) => {
@@ -65,15 +93,15 @@ export default function ContactForm() {
       <div className="field-grid">
         <div className="field">
           <label htmlFor="name">02 · Your name</label>
-          <input id="name" type="text" placeholder="Full name" required />
+          <input id="name" name="name" type="text" placeholder="Full name" required />
         </div>
         <div className="field">
           <label htmlFor="email">03 · Work email</label>
-          <input id="email" type="email" placeholder="you@company.com" required />
+          <input id="email" name="email" type="email" placeholder="you@company.com" required />
         </div>
         <div className="field">
           <label htmlFor="company">04 · Company</label>
-          <input id="company" type="text" placeholder="Company or product name" />
+          <input id="company" name="company" type="text" placeholder="Company or product name" />
         </div>
         <div className="field select-wrap">
           <label>05 · Your role</label>
@@ -108,7 +136,7 @@ export default function ContactForm() {
 
       <div className="field full" style={{ marginBottom: 6 }}>
         <label htmlFor="brief">06 · The brief</label>
-        <textarea id="brief" placeholder="What are you trying to ship? What's the deadline? What's in the way?" />
+        <textarea id="brief" name="brief" placeholder="What are you trying to ship? What's the deadline? What's in the way?" />
       </div>
 
       <div>
@@ -129,13 +157,21 @@ export default function ContactForm() {
         </div>
       </div>
 
+      {error && (
+        <p style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: 'oklch(0.65 0.18 25)', marginTop: 8 }}>
+          {error}
+        </p>
+      )}
+
       <div className="form-actions">
         <span className="fine">Encrypted in transit · We never share briefs.</span>
-        <button type="submit" className="submit">
-          Send brief
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-            <path d="M7 17L17 7M10 7h7v7" />
-          </svg>
+        <button type="submit" className="submit" disabled={loading}>
+          {loading ? 'Sending…' : 'Send brief'}
+          {!loading && (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+              <path d="M7 17L17 7M10 7h7v7" />
+            </svg>
+          )}
         </button>
       </div>
     </form>
