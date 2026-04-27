@@ -3,13 +3,13 @@
 import dynamic from 'next/dynamic'
 
 const SharedInteractions = dynamic(() => import('./SharedInteractions'), { ssr: false })
-const GSAPAnimations = dynamic(() => import('./GSAPAnimations'), { ssr: false })
+const ScrollReveal = dynamic(() => import('./ScrollReveal'), { ssr: false })
 
 export default function ClientAnimations() {
   return (
     <>
       <SharedInteractions />
-      <GSAPAnimations />
+      <ScrollReveal />
     </>
   )
 }
