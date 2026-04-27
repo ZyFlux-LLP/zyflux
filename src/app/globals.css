@@ -683,10 +683,26 @@ section { padding: 120px 0; position: relative; }
   background: var(--bg-elev); border: 1px solid var(--line-soft); border-radius: 12px;
   padding: 6px; list-style: none; margin: 0;
   box-shadow: 0 12px 40px oklch(0 0 0 / 0.4);
+  animation: dropdownIn 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-origin: top center;
+}
+@keyframes dropdownIn {
+  from { opacity: 0; transform: scaleY(0.88) translateY(-6px); }
+  to   { opacity: 1; transform: scaleY(1) translateY(0); }
 }
 .custom-select-menu li {
   padding: 10px 14px; border-radius: 8px; font-size: 15px; cursor: pointer;
   color: var(--ink); transition: background .15s ease;
+  opacity: 0; animation: dropdownItemIn 0.18s ease forwards;
+}
+.custom-select-menu li:nth-child(1) { animation-delay: 0.04s; }
+.custom-select-menu li:nth-child(2) { animation-delay: 0.07s; }
+.custom-select-menu li:nth-child(3) { animation-delay: 0.10s; }
+.custom-select-menu li:nth-child(4) { animation-delay: 0.13s; }
+.custom-select-menu li:nth-child(5) { animation-delay: 0.16s; }
+@keyframes dropdownItemIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 .custom-select-menu li:hover { background: oklch(1 0 0 / 0.06); }
 .custom-select-menu li.active { background: var(--accent); color: var(--bg); }
