@@ -74,8 +74,10 @@ export default function ContactPage() {
               </div>
               <div className="info-block">
                 <h4>Phone</h4>
-                <div className="big" style={{ fontSize: 17 }}><a href="tel:+917021309381">+91 70213 09381</a></div>
-                <div className="sub"><a href="https://wa.me/917021309381" target="_blank" rel="noopener noreferrer">Also on WhatsApp.</a></div>
+                <div className="big" style={{ fontSize: 17, display: 'flex', flexDirection: 'column', gap: 10 }}>
+                  <a href="tel:+917021309381">+91 70213 09381</a>
+                  <a href="https://wa.me/917021309381" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>WhatsApp <SocialArrow /></a>
+                </div>
               </div>
               <div className="info-block">
                 <h4>Socials</h4>
