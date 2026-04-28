@@ -297,14 +297,15 @@ section { padding: 120px 0; position: relative; }
 .hero { min-height: 100vh; display: flex; align-items: center; position: relative; padding-top: 140px; padding-bottom: 80px; overflow: hidden; }
 .hero-mesh { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
 .hero-grid-bg {
-  position: absolute; inset: 0;
+  position: absolute; inset: -64px;
   background-image: linear-gradient(oklch(1 0 0 / 0.035) 1px, transparent 1px), linear-gradient(90deg, oklch(1 0 0 / 0.035) 1px, transparent 1px);
   background-size: 64px 64px;
   mask-image: radial-gradient(ellipse 90% 70% at 50% 50%, black 30%, transparent 85%);
   -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 50%, black 30%, transparent 85%);
+  will-change: transform;
   animation: gridShift 30s linear infinite;
 }
-@keyframes gridShift { to { background-position: 64px 64px; } }
+@keyframes gridShift { to { transform: translate(64px, 64px); } }
 .hero-blob { position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.55; will-change: transform; animation: float 18s ease-in-out infinite; }
 .hero-blob.b1 { width: 580px; height: 580px; background: oklch(0.62 0.18 225); top: -120px; right: -100px; }
 .hero-blob.b2 { width: 460px; height: 460px; background: oklch(0.72 0.15 210); bottom: -140px; left: 8%; animation-delay: -6s; }
@@ -754,3 +755,88 @@ section { padding: 120px 0; position: relative; }
 .loc .addr { font-size: 14px; color: var(--ink-muted); line-height: 1.6; }
 .loc-map { background: var(--bg); overflow: hidden; min-height: 260px; }
 .loc-map iframe { width: 100%; height: 100%; min-height: 260px; border: 0; display: block; filter: invert(90%) hue-rotate(180deg) saturate(0.85) brightness(0.9); }
+
+/* ——— Mobile performance optimizations ——— */
+@media (max-width: 960px) {
+  /* Show orbit on mobile — half-visible from right edge, level with h1 */
+  .hero-orbit {
+    display: block;
+    width: 420px;
+    height: 420px;
+    top: 130px;
+    margin-top: 0;
+    right: -210px;
+    opacity: 0;
+    animation: fadeOrbit 1.6s var(--ease-out) 0.5s forwards;
+  }
+  /* Remove fixed noise overlay — SVG feTurbulence filter repaints every scroll frame */
+  body::after { display: none; }
+
+  /* Simplify fixed ambient background — one gradient instead of three */
+  body::before {
+    background: radial-gradient(ellipse 140% 55% at 50% -10%, oklch(0.72 0.18 220 / 0.1), transparent 65%);
+  }
+
+  /* Nav: solid background instead of backdrop-filter */
+  .nav {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: oklch(0.15 0.012 260 / 0.96);
+  }
+
+  /* Mobile nav dropdown: same treatment */
+  .nav-links {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: oklch(0.17 0.014 260 / 0.98) !important;
+  }
+
+  /* Hero blobs: circles positioned so overflow:hidden clips them exactly in half */
+  .hero-blob {
+    filter: blur(50px);
+    will-change: auto;
+    animation: none;
+    border-radius: 50%;
+  }
+  /* Right side — ambient glow behind the orbit */
+  .hero-blob.b1 {
+    width: 300px;
+    height: 300px;
+    top: 130px;
+    right: -150px;
+    margin-top: 60px;
+    opacity: 0.45;
+  }
+  /* Lower-left — subtle accent, right half shows */
+  .hero-blob.b2 {
+    width: 220px;
+    height: 220px;
+    bottom: 180px;
+    left: -110px;
+    opacity: 0.35;
+  }
+  .hero-blob.b3 { display: none; }
+
+  /* Stop background-position animation — not GPU-compositable, causes full repaints */
+  .hero-grid-bg { animation: none; }
+
+  /* Remove backdrop-filter from secondary elements */
+  .trust {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .hero-ticker {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .hero-status {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .filters {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: var(--bg);
+  }
+
+}

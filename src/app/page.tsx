@@ -95,7 +95,7 @@ export default function Home() {
             </div>
             <div className="metric">
               <div className="n">
-                <span data-count="9">9</span>
+                <span data-count="3">3</span>
                 <span style={{ fontSize: '0.5em', color: 'var(--ink-dim)' }}>mo</span>
               </div>
               <div className="l">Avg. build time</div>

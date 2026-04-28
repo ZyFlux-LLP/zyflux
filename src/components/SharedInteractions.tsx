@@ -28,26 +28,24 @@ export default function SharedInteractions() {
       if (!c.closest('.hero')) countIO.observe(c)
     })
 
-    // Hero counters: reset to 0 before fade-in, then count up on animationend
-    document.querySelectorAll<HTMLElement>('.hero .reveal').forEach((reveal) => {
-      reveal.querySelectorAll<HTMLElement>('[data-count]').forEach((el) => {
-        const suffix = el.dataset.suffix || ''
-        const decimals = parseInt(el.dataset.decimals || '0', 10)
-        el.textContent = (decimals ? (0).toFixed(decimals) : '0') + suffix
-      })
-      const onEnd = (e: AnimationEvent) => {
-        if (e.target !== reveal) return
-        reveal.querySelectorAll<HTMLElement>('[data-count]').forEach(runCountUp)
-        reveal.removeEventListener('animationend', onEnd)
-      }
-      reveal.addEventListener('animationend', onEnd)
+    // Hero counters: start count-up immediately rather than waiting for animationend.
+    // With Lighthouse's 4x CPU throttle, useEffect runs at ~2500ms but animationend
+    // fires at 1900ms (CSS) — the event is always missed, leaving the counter stuck at "0+".
+    // Starting immediately ensures the final value is reached before the element fades in,
+    // so LCP sees the completed "60+" on first paint instead of the last count-up frame.
+    document.querySelectorAll<HTMLElement>('.hero [data-count]').forEach((el) => {
+      const suffix = el.dataset.suffix || ''
+      const decimals = parseInt(el.dataset.decimals || '0', 10)
+      el.textContent = (decimals ? (0).toFixed(decimals) : '0') + suffix
+      runCountUp(el)
     })
 
     return () => { countIO.disconnect() }
   }, [pathname])
 
-  // Magnetic buttons — re-attach on every navigation
+  // Magnetic buttons — re-attach on every navigation (pointer devices only)
   useEffect(() => {
+    if (window.matchMedia('(hover: none)').matches) return
     const handlers: Array<{ el: HTMLElement; move: (e: MouseEvent) => void; leave: () => void }> = []
     document.querySelectorAll<HTMLElement>('.magnetic').forEach((el) => {
       const move = (e: MouseEvent) => {
@@ -69,10 +67,12 @@ export default function SharedInteractions() {
     }
   }, [pathname])
 
-  // Parallax — persistent RAF loop, only active on pages with blobs
+  // Parallax — persistent RAF loop, only active on pointer devices with blobs
   useEffect(() => {
     const parallaxEls = document.querySelectorAll<HTMLElement>('[data-parallax]')
     if (!parallaxEls.length) return
+    // No mousemove events on touch-only devices — skip the RAF loop entirely
+    if (window.matchMedia('(hover: none)').matches) return
 
     const m = mouseRef.current
     const onMouseMove = (e: MouseEvent) => {
