@@ -4,6 +4,7 @@ import './globals.css'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import ClientAnimations from '@/components/ClientAnimations'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -65,6 +66,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main>{children}</main>
         <Footer />
         <ClientAnimations />
+        <SpeedInsights />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
