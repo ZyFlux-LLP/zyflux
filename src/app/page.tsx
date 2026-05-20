@@ -177,6 +177,9 @@ export default function Home() {
                   <span className="service-num">01 / ERP</span>
                 </div>
               </div>
+              <div className="service-visual">
+                <video src="/videos/erp.webm" autoPlay muted loop playsInline />
+              </div>
               <div>
                 <h3>ERP Systems</h3>
                 <p>Custom enterprise resource platforms — inventory, finance, HR, procurement — unified into one operating surface tailored to your workflow.</p>
@@ -193,6 +196,9 @@ export default function Home() {
                   <span className="service-num">02 / CRM</span>
                 </div>
               </div>
+              <div className="service-visual">
+                <video src="/videos/crm.webm" autoPlay muted loop playsInline />
+              </div>
               <div>
                 <h3>CRM Platforms</h3>
                 <p>Sales pipelines, customer lifecycle, and support desks in one place. Built around how your team actually sells — not a rigid SaaS template.</p>
@@ -206,6 +212,9 @@ export default function Home() {
                   <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2" /><path d="M3 8h18M7 12h6" /></svg>
                 </div>
                 <span className="service-num">03 / Web</span>
+              </div>
+              <div className="service-visual">
+                <video src="/videos/web.webm" autoPlay muted loop playsInline />
               </div>
               <div>
                 <h3>Web Platforms</h3>
@@ -221,6 +230,9 @@ export default function Home() {
                 </div>
                 <span className="service-num">04 / Apps</span>
               </div>
+              <div className="service-visual">
+                <video src="/videos/mobile.webm" autoPlay muted loop playsInline />
+              </div>
               <div>
                 <h3>Mobile Apps</h3>
                 <p>iOS and Android apps shipped fast. We lean on Flutter and FlutterFlow for cross-platform builds without the native compromise.</p>
@@ -234,6 +246,9 @@ export default function Home() {
                   <svg viewBox="0 0 24 24"><path d="M12 3v2M12 19v2M5 12H3M21 12h-2M6 6l1.4 1.4M16.6 16.6L18 18M6 18l1.4-1.4M16.6 7.4L18 6" /><circle cx="12" cy="12" r="4" /><circle cx="12" cy="12" r="1.5" fill="currentColor" /></svg>
                 </div>
                 <span className="service-num">05 / AI</span>
+              </div>
+              <div className="service-visual">
+                <video src="/videos/ai-agent.webm" autoPlay muted loop playsInline />
               </div>
               <div>
                 <h3>AI &amp; Agents</h3>
