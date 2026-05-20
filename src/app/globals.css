@@ -427,7 +427,7 @@ section { padding: 120px 0; position: relative; }
 .service.wide { grid-column: span 3; }
 .service.full { grid-column: span 6; min-height: 260px; flex-direction: row; align-items: center; }
 .service.full .service-body { flex: 1.2; }
-.service.full .service-visual { flex: 1; height: 200px; }
+.service.full .service-visual { flex: 1; height: auto; }
 @media (max-width: 960px) { .services { grid-template-columns: 1fr 1fr; } .service, .service.wide { grid-column: span 1; } .service.full { grid-column: span 2; flex-direction: column; align-items: stretch; } }
 @media (max-width: 600px) { .services { grid-template-columns: 1fr; } .service, .service.wide, .service.full { grid-column: span 1; } .service.full .service-visual { height: 180px; } }
 .service-num { font-family: var(--font-mono); font-size: 11px; color: var(--ink-dim); letter-spacing: 0.18em; }
@@ -439,8 +439,8 @@ section { padding: 120px 0; position: relative; }
 .glyph::after { content: ''; position: absolute; inset: -1px; background: var(--gradient); opacity: 0; transition: opacity .4s var(--ease); mix-blend-mode: overlay; }
 .service:hover .glyph::after { opacity: 0.3; }
 .glyph svg { width: 22px; height: 22px; stroke: var(--ink); fill: none; stroke-width: 1.4; }
-.service-visual { height: 140px; border-radius: 12px; border: 1px solid var(--line-soft); background: var(--bg); position: relative; overflow: hidden; }
-.service-visual video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.service-visual { height: auto; border-radius: 12px; border: 1px solid var(--line-soft); background: var(--bg); position: relative; overflow: hidden; }
+.service-visual video { width: 100%; height: auto; display: block; }
 .viz-flow { background: radial-gradient(circle at 30% 50%, oklch(0.25 0.02 260), var(--bg) 70%); }
 .viz-flow svg { width: 100%; height: 100%; }
 .viz-flow path { stroke: var(--accent); stroke-width: 1.2; fill: none; stroke-dasharray: 4 6; animation: dash 4s linear infinite; }
