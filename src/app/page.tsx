@@ -5,12 +5,12 @@ import CalButton from '@/components/CalButton'
 export const metadata: Metadata = {
   title: 'Zyflux — Engineering the flow of modern software',
   description:
-    'Zyflux is a product engineering studio in Navi Mumbai — building custom ERP, CRM, ecommerce platforms, Flutter apps, and digital marketing for startups and enterprises.',
+    'Zyflux is a product engineering studio in Navi Mumbai — building custom ERP, CRM, ecommerce platforms, and Flutter apps for startups and enterprises.',
   alternates: { canonical: '/' },
   openGraph: {
     title: 'Zyflux — Engineering the flow of modern software',
     description:
-      'Zyflux is a product engineering studio in Navi Mumbai — building custom ERP, CRM, ecommerce platforms, Flutter apps, and digital marketing for startups and enterprises.',
+      'Zyflux is a product engineering studio in Navi Mumbai — building custom ERP, CRM, ecommerce platforms, and Flutter apps for startups and enterprises.',
     url: 'https://zyflux.com',
   },
 }
@@ -72,7 +72,7 @@ export default function Home() {
               </h1>
             </div>
             <div className="hero-side">
-              <p>We design, build, and ship digital products — ERP, CRM, ecommerce, apps, and digital marketing — for teams that care about craft and velocity.</p>
+              <p>We design, build, and ship digital products — ERP, CRM, ecommerce, and apps — for teams that care about craft and velocity.</p>
               <div className="hero-cta">
                 <CalButton className="btn btn-primary magnetic">
                   Schedule a call
@@ -239,27 +239,6 @@ export default function Home() {
                 <h3>AI &amp; Agents</h3>
                 <p>LLM integration, RAG pipelines, and autonomous workflows embedded into your product surface.</p>
                 <div className="service-tags"><span>RAG</span><span>Agents</span><span>OpenAI</span></div>
-              </div>
-            </article>
-
-            <article className="card service full">
-              <div className="service-body">
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 24 }}>
-                  <div className="glyph">
-                    <svg viewBox="0 0 24 24"><path d="M3 11l18-7v16l-18-7z" /><path d="M7 13v5a2 2 0 002 2h1a2 2 0 002-2v-3" /></svg>
-                  </div>
-                  <span className="service-num">06 / Growth</span>
-                </div>
-                <h3>Digital Marketing</h3>
-                <p style={{ maxWidth: '52ch' }}>Full-funnel growth — performance ads, organic search, and social run as one team. Creative, media buying, community, and reporting under a single growth loop.</p>
-                <div className="service-tags"><span>Meta Ads</span><span>Google Ads</span><span>SEO</span><span>Social media marketing</span><span>Social media management</span></div>
-              </div>
-              <div className="service-visual viz-flow">
-                <svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice">
-                  <path d="M0,100 C80,40 160,160 240,100 S400,40 400,100" />
-                  <path d="M0,130 C80,70 160,190 240,130 S400,70 400,130" style={{ opacity: 0.5 }} />
-                  <path d="M0,70 C80,10 160,130 240,70 S400,10 400,70" style={{ opacity: 0.3 }} />
-                </svg>
               </div>
             </article>
           </div>

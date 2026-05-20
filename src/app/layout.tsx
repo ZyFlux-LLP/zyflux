@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     template: '%s — Zyflux',
   },
   description:
-    'Zyflux is a product engineering studio in Navi Mumbai — building custom ERP, CRM, ecommerce platforms, Flutter apps, and digital marketing for startups and enterprises.',
+    'Zyflux is a product engineering studio in Navi Mumbai — building custom ERP, CRM, ecommerce platforms, and Flutter apps for startups and enterprises.',
   openGraph: {
     type: 'website',
     siteName: 'Zyflux',
@@ -77,7 +77,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               url: 'https://zyflux.com',
               logo: 'https://zyflux.com/zyflux-logo.png',
               description:
-                'Product engineering studio building custom ERP, CRM, ecommerce platforms, Flutter apps, and digital marketing.',
+                'Product engineering studio building custom ERP, CRM, ecommerce platforms, and Flutter apps.',
               foundingDate: '2023',
               email: 'team@zyflux.com',
               telephone: '+917021309381',

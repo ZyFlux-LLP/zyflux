@@ -51,7 +51,7 @@ export default function ContactForm() {
     else setBudgetChip(val)
   }
 
-  const projectTypes = ['ERP Systems', 'CRM Platforms', 'Web Platforms', 'Mobile Apps', 'AI & Agents', 'Digital Marketing']
+  const projectTypes = ['ERP Systems', 'CRM Platforms', 'Web Platforms', 'Mobile Apps', 'AI & Agents']
   const budgets = ['$1–5k', '$5–10k', '$10–50k', '$50k+', 'Custom pricing']
 
   if (submitted) {

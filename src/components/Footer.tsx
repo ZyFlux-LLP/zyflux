@@ -29,7 +29,6 @@ export default function Footer() {
               <li><Link href="/#services">Web Platforms</Link></li>
               <li><Link href="/#services">Mobile Apps</Link></li>
               <li><Link href="/#services">AI &amp; Agents</Link></li>
-              <li><Link href="/#services">Digital Marketing</Link></li>
             </ul>
           </div>
           <div className="footer-col">
