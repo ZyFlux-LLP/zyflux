@@ -113,6 +113,9 @@ export default function Home() {
           <div className="trust reveal">
             <div className="trust-label">Rated by</div>
             <div className="trust-row">
+              <div className="trust-item" aria-label="DPIIT Startup India">
+                <img src="/dpiit-logo.svg" alt="DPIIT Startup India" style={{ height: 32, width: 'auto', objectFit: 'contain' }} />
+              </div>
               <a href="#" className="trust-item" aria-label="Trustpilot">
                 <span className="logo">
                   <svg viewBox="0 0 24 24" fill="oklch(0.78 0.16 150)">
@@ -131,15 +134,6 @@ export default function Home() {
                 </span>
                 <span className="rating"><Stars /> 5.0 · 38</span>
               </a>
-              <a href="#" className="trust-item" aria-label="Contra">
-                <span className="logo">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                    <path d="M18 8a6 6 0 1 0 0 8" />
-                  </svg>
-                  Contra
-                </span>
-                <span className="rating">Top 1% studio</span>
-              </a>
             </div>
           </div>
         </div>
@@ -149,8 +143,8 @@ export default function Home() {
       {/* MARQUEE */}
       <div className="marquee">
         <div className="marquee-track">
-          {['ERP systems','CRM platforms','Ecommerce','Landing pages','Flutter apps','Meta & Google Ads','SEO','Social media',
-            'ERP systems','CRM platforms','Ecommerce','Landing pages','Flutter apps','Meta & Google Ads','SEO','Social media'].map((item, i) => (
+          {['ERP systems','CRM platforms','Ecommerce','Landing pages','Flutter apps',
+            'ERP systems','CRM platforms','Ecommerce','Landing pages','Flutter apps'].map((item, i) => (
             <div key={i} className="marquee-item">{item}<span /></div>
           ))}
         </div>
