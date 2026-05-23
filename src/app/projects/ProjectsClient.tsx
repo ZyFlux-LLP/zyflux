@@ -1,12 +1,13 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 
 type Category = 'all' | 'web' | 'mobile' | 'health' | 'other'
 
 const projects: {
   id: number; cat: Category; size: 'full' | 'lg' | 'md' | 'sm';
-  meta: string; client: string; thumb: string;
+  meta: string; client: string; thumb: string; img?: string;
   title: string; desc: string; tags: string[];
   stats: { n: string; l: string }[] | null;
   url?: string;
@@ -14,7 +15,7 @@ const projects: {
   {
     id: 1, cat: 'other' as Category, size: 'full',
     meta: '01 · Fintech · Backend · Live', client: 'MissCallPay (Minkville)',
-    thumb: 't-misscall',
+    thumb: 't-misscall', img: '/projects/mcp.webp',
     title: 'MissCallPay — cashless payment backend for rural India',
     desc: 'Full backend for a fintech platform enabling digital payments via a simple missed call — no smartphone or internet required. Powered by data-packet technology over voice channels to reach unbanked and rural populations across India. Winner of MahaStartupWeek 2019 Award for Inclusive Fintech.',
     tags: ['Backend', 'Fintech', 'APIs', 'Data Packets', 'Payments', 'Node.js'],
@@ -24,7 +25,7 @@ const projects: {
   {
     id: 2, cat: 'web' as Category, size: 'md',
     meta: '02 · Media & Publishing · Live', client: 'Dainik Nirnayak',
-    thumb: 't-dainik',
+    thumb: 't-dainik', img: '/projects/dainik.webp',
     title: 'Dainik Nirnayak CMS — newspaper production platform',
     desc: 'Digitized the entire newspaper production and advertisement billing workflow with a custom web-based application. Centralized editorial uploads, real-time approval flows, PDF generation, client billing, and GST-based invoicing into a single dashboard.',
     tags: ['Web App', 'CMS', 'Editorial Workflow', 'PDF Generation', 'GST Invoicing', 'Dashboard'],
@@ -34,7 +35,7 @@ const projects: {
   {
     id: 3, cat: 'web' as Category, size: 'md',
     meta: '03 · Interior Design · Live', client: 'Zara James Studio',
-    thumb: 't-interior',
+    thumb: 't-interior', img: '/projects/zara.webp',
     title: 'Zara James Studio — luxury interior design portfolio',
     desc: 'Bespoke portfolio website for a Mumbai-based luxury residential interior design firm. Image-first case study layout, dark-mode toggle, and refined typography showcasing projects across India and international locations.',
     tags: ['Next.js', 'Portfolio', 'Dark Mode', 'Image Optimisation', 'Responsive'],
@@ -44,7 +45,7 @@ const projects: {
   {
     id: 4, cat: 'web' as Category, size: 'md',
     meta: '04 · Sports & Sailing · Live', client: 'Mumbai Meridians',
-    thumb: 't-sailing',
+    thumb: 't-sailing', img: '/projects/mumbai merdians.webp',
     title: 'Mumbai Meridians — ISL sailing franchise website',
     desc: 'Multi-page website for India\'s ISL 2026 sailing franchise. Live event countdown, team roster, junior academy enrollment for ages 6–18, training programmes across multiple boat classes, and media gallery.',
     tags: ['Next.js', 'Sports', 'Event Countdown', 'Responsive', 'WebP'],
@@ -54,7 +55,7 @@ const projects: {
   {
     id: 5, cat: 'web' as Category, size: 'md',
     meta: '05 · Construction & Steel · Live', client: 'Metal Barns India',
-    thumb: 't-steel',
+    thumb: 't-steel', img: '/projects/metal barns.webp',
     title: 'Metal Barns India — pre-engineered steel buildings',
     desc: 'Corporate website for an ISO 9001:2015 certified pre-engineered steel building company. Serves clients including Mercedes-Benz, L&T, Siemens, and DRDO with full EPC solutions across industrial and commercial construction.',
     tags: ['Next.js', 'Corporate', 'Construction', 'Responsive', 'Web Design'],
@@ -64,7 +65,7 @@ const projects: {
   {
     id: 6, cat: 'web' as Category, size: 'md',
     meta: '06 · Travel & Tourism · Live', client: 'Prasthanam Holidays',
-    thumb: 't-travel',
+    thumb: 't-travel', img: '/projects/prasthanam.webp',
     title: 'Prasthanam Holidays — full-stack tour platform',
     desc: 'Comprehensive tour agency website with advanced booking systems, customer management, and personalised travel experiences. Built with a modern stack including payment integration and CMS-driven package listings.',
     tags: ['React', 'Node.js', 'MongoDB', 'Stripe', 'SEO'],
@@ -73,7 +74,7 @@ const projects: {
   {
     id: 7, cat: 'mobile' as Category, size: 'md',
     meta: '07 · Social & Dating · Live', client: 'Consulting Wizz',
-    thumb: 't-dating',
+    thumb: 't-dating', img: '/projects/Sparksflay wix.webp',
     title: 'SparksFly — dating app with AI matching',
     desc: 'Modern dating application with advanced matching algorithms, real-time messaging, and an intuitive UX designed for meaningful connections. Delivered in 6 weeks.',
     tags: ['Flutter', 'Firebase', 'TensorFlow', 'Real-time Chat'],
@@ -82,7 +83,7 @@ const projects: {
   {
     id: 8, cat: 'health' as Category, size: 'md',
     meta: '08 · Healthcare & AI · Prototype', client: 'Zyflux Labs',
-    thumb: 't-access',
+    thumb: 't-access', img: '/projects/Smart Accessibility Device.webp',
     title: 'Smart Accessibility Device — AI navigation for the visually impaired',
     desc: 'AI-powered navigation assistance device integrating computer vision and edge inference on Raspberry Pi for enhanced mobility of visually impaired users. 94% obstacle detection accuracy.',
     tags: ['Python', 'TensorFlow', 'OpenCV', 'Raspberry Pi'],
@@ -100,7 +101,7 @@ const projects: {
   {
     id: 10, cat: 'web' as Category, size: 'md',
     meta: '10 · Media Sharing · Live', client: 'YouShare',
-    thumb: 't-social',
+    thumb: 't-social', img: '/projects/You Share.webp',
     title: 'YouShare — social media web app',
     desc: 'Dynamic platform for discovering, saving, and sharing visual content with personalised boards. 3K+ daily users, 8.2 min average session time.',
     tags: ['ReactJS', 'Tailwind CSS', 'Sanity', 'JavaScript'],
@@ -118,7 +119,7 @@ const projects: {
   {
     id: 12, cat: 'mobile' as Category, size: 'md',
     meta: '12 · Food Delivery · Live', client: 'Namma Pondy',
-    thumb: 't-food',
+    thumb: 't-food', img: '/projects/Namma Pondy.webp',
     title: 'Namma Pondy — hyperlocal food delivery',
     desc: 'Local food delivery app connecting Pondicherry users with home chefs and restaurants via geo-location and live order tracking. Three-role architecture: customer, vendor, delivery.',
     tags: ['Flutter', 'FlutterFlow', 'Firebase', 'Geo-location'],
@@ -127,7 +128,7 @@ const projects: {
   {
     id: 13, cat: 'mobile' as Category, size: 'md',
     meta: '13 · Hospitality · Live', client: 'Metoospace',
-    thumb: 't-hotel',
+    thumb: 't-hotel', img: '/projects/MetooSpace Wix.webp',
     title: 'Metoospace — hotel booking platform',
     desc: 'Seamless hotel booking app with real-time room availability, map-based UI, secure payment, and admin dashboards. 40K+ bookings across 300+ hotel partners.',
     tags: ['Flutter', 'FlutterFlow', 'Firebase', 'Payments'],
@@ -170,7 +171,18 @@ export default function ProjectsClient() {
             className={`project size-${p.size}${active !== 'all' && p.cat !== active ? ' hidden' : ''}`}
             data-cat={p.cat}
           >
-            <div className={`p-thumb ${p.thumb}`} />
+            <div className={`p-thumb ${p.thumb}`}>
+              {p.img && (
+                <Image
+                  src={p.img}
+                  alt={p.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  style={{ objectFit: 'cover' }}
+                  priority={p.id <= 2}
+                />
+              )}
+            </div>
             <div className="p-body">
               <div className="p-meta"><span>{p.meta}</span><span>{p.client}</span></div>
               <h3>{p.title}</h3>

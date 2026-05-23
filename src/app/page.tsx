@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import CalButton from '@/components/CalButton'
 
 export const metadata: Metadata = {
@@ -301,7 +302,9 @@ export default function Home() {
           </div>
           <div className="showcase-grid reveal-stagger">
             <a href="https://nirnayaknews.com/" target="_blank" rel="noopener noreferrer" className="showcase-card">
-              <div className="showcase-thumb t-dainik" />
+              <div className="showcase-thumb t-dainik">
+                <Image src="/projects/dainik.webp" alt="Dainik Nirnayak CMS" fill sizes="(max-width: 600px) 100vw, 50vw" style={{ objectFit: 'cover' }} priority />
+              </div>
               <div className="showcase-body">
                 <div className="showcase-meta"><span>Media & Publishing · 2024</span><ArrowIcon /></div>
                 <h3>Dainik Nirnayak CMS — newspaper production platform</h3>
@@ -309,7 +312,9 @@ export default function Home() {
               </div>
             </a>
             <a href="https://ind.misscallpay.com/" target="_blank" rel="noopener noreferrer" className="showcase-card">
-              <div className="showcase-thumb t-misscall" />
+              <div className="showcase-thumb t-misscall">
+                <Image src="/projects/mcp.webp" alt="MissCallPay" fill sizes="(max-width: 600px) 100vw, 50vw" style={{ objectFit: 'cover' }} priority />
+              </div>
               <div className="showcase-body">
                 <div className="showcase-meta"><span>Fintech · 2019</span><ArrowIcon /></div>
                 <h3>MissCallPay — cashless payment for rural India</h3>
@@ -317,7 +322,9 @@ export default function Home() {
               </div>
             </a>
             <a href="https://www.zarajamesstudio.com/" target="_blank" rel="noopener noreferrer" className="showcase-card">
-              <div className="showcase-thumb t-interior" />
+              <div className="showcase-thumb t-interior">
+                <Image src="/projects/zara.webp" alt="Zara James Studio" fill sizes="(max-width: 600px) 100vw, 50vw" style={{ objectFit: 'cover' }} />
+              </div>
               <div className="showcase-body">
                 <div className="showcase-meta"><span>Interior Design · 2024</span><ArrowIcon /></div>
                 <h3>Zara James Studio — luxury interior design portfolio</h3>
@@ -325,7 +332,9 @@ export default function Home() {
               </div>
             </a>
             <a href="https://www.mumbaimeridians.com/" target="_blank" rel="noopener noreferrer" className="showcase-card">
-              <div className="showcase-thumb t-sailing" />
+              <div className="showcase-thumb t-sailing">
+                <Image src="/projects/mumbai merdians.webp" alt="Mumbai Meridians" fill sizes="(max-width: 600px) 100vw, 50vw" style={{ objectFit: 'cover' }} />
+              </div>
               <div className="showcase-body">
                 <div className="showcase-meta"><span>Sports & Sailing · 2025</span><ArrowIcon /></div>
                 <h3>Mumbai Meridians — ISL sailing franchise</h3>
