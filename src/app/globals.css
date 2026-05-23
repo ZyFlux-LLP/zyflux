@@ -548,10 +548,10 @@ section { padding: 120px 0; position: relative; }
 .project.hidden { display: none; }
 .project:hover { transform: translateY(-4px); border-color: var(--line); }
 .project.size-full { grid-column: span 12; display: grid; grid-template-columns: 1fr 1fr; }
-.project.size-full .p-thumb { aspect-ratio: unset; min-height: 300px; border-bottom: none; border-right: 1px solid var(--line-soft); }
+.project.size-full .p-thumb { aspect-ratio: unset; min-height: 0; border-bottom: none; border-right: 1px solid var(--line-soft); }
 .project.size-full .p-body { display: flex; flex-direction: column; justify-content: center; padding: 48px 52px; }
 .project.size-full .p-body h3 { font-size: clamp(1.6rem, 2.2vw, 2.4rem); }
-@media (max-width: 960px) { .project.size-full { grid-template-columns: 1fr; } .project.size-full .p-thumb { min-height: 220px; border-right: none; border-bottom: 1px solid var(--line-soft); } }
+@media (max-width: 960px) { .project.size-full { grid-template-columns: 1fr; } .project.size-full .p-thumb { min-height: 0; border-right: none; border-bottom: 1px solid var(--line-soft); } }
 .project.size-lg { grid-column: span 8; }
 .project.size-md { grid-column: span 6; }
 .project.size-sm { grid-column: span 4; }
@@ -631,7 +631,7 @@ section { padding: 120px 0; position: relative; }
 
 .t-misscall { background: linear-gradient(135deg, oklch(0.18 0.04 145), oklch(0.14 0.015 260)); }
 .t-misscall::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 40% 55%, oklch(0.65 0.2 145 / 0.35), transparent 55%), radial-gradient(circle at 75% 25%, oklch(0.5 0.15 165 / 0.2), transparent 40%); }
-.t-misscall::after { content: '📵 missed call · pay · done'; position: absolute; bottom: 18px; left: 22px; font-family: var(--font-mono); font-size: 10px; color: oklch(0.7 0.18 145 / 0.9); letter-spacing: 0.1em; }
+.t-misscall::after { content: '📵 MissCallPay · pay · done'; position: absolute; bottom: 18px; left: 22px; font-family: var(--font-mono); font-size: 10px; color: oklch(0.7 0.18 145 / 0.9); letter-spacing: 0.1em; }
 
 .t-interior { background: linear-gradient(135deg, oklch(0.2 0.03 50), oklch(0.14 0.015 260)); }
 .t-interior::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 75% 35%, oklch(0.78 0.12 65 / 0.3), transparent 55%), radial-gradient(ellipse at 25% 70%, oklch(0.55 0.08 40 / 0.2), transparent 50%); }

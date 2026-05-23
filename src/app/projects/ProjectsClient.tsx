@@ -173,14 +173,26 @@ export default function ProjectsClient() {
           >
             <div className={`p-thumb ${p.thumb}`}>
               {p.img && (
-                <Image
-                  src={p.img}
-                  alt={p.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  style={{ objectFit: 'cover' }}
-                  priority={p.id <= 2}
-                />
+                p.size === 'full' ? (
+                  <Image
+                    src={p.img}
+                    alt={p.title}
+                    width={0}
+                    height={0}
+                    sizes="(max-width: 960px) 100vw, 50vw"
+                    style={{ width: '100%', height: 'auto', display: 'block' }}
+                    priority
+                  />
+                ) : (
+                  <Image
+                    src={p.img}
+                    alt={p.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    style={{ objectFit: 'cover' }}
+                    priority={p.id <= 2}
+                  />
+                )
               )}
             </div>
             <div className="p-body">
