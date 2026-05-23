@@ -649,7 +649,7 @@ section { padding: 120px 0; position: relative; }
 .t-dainik::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, var(--line-soft) 0px, var(--line-soft) 1px, transparent 1px, transparent 22px), radial-gradient(ellipse at 75% 30%, oklch(0.72 0.18 55 / 0.28), transparent 55%); }
 .t-dainik::after { content: '📰 upload · approve · publish'; position: absolute; bottom: 18px; left: 22px; font-family: var(--font-mono); font-size: 10px; color: oklch(0.78 0.17 55 / 0.85); letter-spacing: 0.1em; }
 
-.p-live-link { display: inline-block; margin-top: 18px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-dim); text-decoration: none; border-bottom: 1px solid var(--line-soft); padding-bottom: 2px; transition: color .25s var(--ease), border-color .25s var(--ease); }
+.p-live-link { display: inline-block; align-self: flex-start; margin-top: 18px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-dim); text-decoration: none; border-bottom: 1px solid var(--line-soft); padding-bottom: 2px; transition: color .25s var(--ease), border-color .25s var(--ease); }
 .p-live-link:hover { color: var(--ink); border-color: var(--ink); }
 
 /* ——— Contact ——— */
