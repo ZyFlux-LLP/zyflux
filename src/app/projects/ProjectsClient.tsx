@@ -73,7 +73,7 @@ const projects: {
   },
   {
     id: 7, cat: 'mobile' as Category, size: 'md',
-    meta: '07 · Social & Dating · Live', client: 'Consulting Wizz',
+    meta: '07 · Social & Dating · Live', client: 'ConsultingWhiz',
     thumb: 't-dating', img: '/projects/Sparksflay wix.webp',
     title: 'SparksFly — dating app with AI matching',
     desc: 'Modern dating application with advanced matching algorithms, real-time messaging, and an intuitive UX designed for meaningful connections. Delivered in 6 weeks.',
@@ -91,7 +91,7 @@ const projects: {
   },
   {
     id: 9, cat: 'mobile' as Category, size: 'md',
-    meta: '09 · Premium Dating · Live', client: 'Consulting Wizz',
+    meta: '09 · Premium Dating · Live', client: 'ConsultingWhiz',
     thumb: 't-privacy',
     title: 'Illuzn — privacy-first dating platform',
     desc: 'Sophisticated dating platform emphasising safety with identity verification, secure chat, in-app reporting, and multi-layer moderation. 150% user growth post-launch.',
