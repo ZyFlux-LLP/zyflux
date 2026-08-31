@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import CalButton from '@/components/CalButton'
 
 export const metadata: Metadata = {
@@ -15,10 +16,18 @@ export const metadata: Metadata = {
 }
 
 const team = [
-  { initials: 'AG', name: 'Arpit Gupta', role: 'Co-founder · Partner', color: 'p-a' },
-  { initials: 'VS', name: 'Vatsal Sharma', role: 'Co-founder · Partner', color: 'p-b' },
-  { initials: 'AC', name: 'Aditya Chauhan', role: 'Co-founder · Partner', color: 'p-c' },
+  { name: 'Arpit Gupta', role: 'Co-founder · Partner', image: '/team/arpit.webp', linkedin: 'https://www.linkedin.com/in/arpit-gupta4487/' },
+  { name: 'Vatsal Sharma', role: 'Co-founder · Partner', image: '/team/vatsal.webp', linkedin: 'https://www.linkedin.com/in/vatsalsharma4321/' },
+  { name: 'Aditya Chauhan', role: 'Co-founder · Partner', image: '/team/aditya.webp', linkedin: 'https://www.linkedin.com/in/sriyaflows/' },
 ]
+
+function LinkedInIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z" />
+    </svg>
+  )
+}
 
 
 export default function AboutPage() {
@@ -88,11 +97,22 @@ export default function AboutPage() {
           </div>
           <div className="team reveal-stagger">
             {team.map((m) => (
-              <div key={m.initials} className="teammate">
-                <div className={`teammate-portrait ${m.color}`} data-initials={m.initials} />
+              <div key={m.name} className="teammate">
+                <div className="teammate-portrait">
+                  <Image src={m.image} alt={m.name} fill sizes="(max-width: 820px) 100vw, 33vw" style={{ objectFit: 'cover' }} />
+                </div>
                 <div className="teammate-body">
                   <h3>{m.name}</h3>
                   <div className="role">{m.role}</div>
+                  <a
+                    className="teammate-linkedin"
+                    href={m.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${m.name} on LinkedIn`}
+                  >
+                    <LinkedInIcon />
+                  </a>
                 </div>
               </div>
             ))}

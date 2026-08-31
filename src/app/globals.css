@@ -505,10 +505,10 @@ section { padding: 120px 0; position: relative; }
 .timeline-year { font-family: var(--font-display); font-size: 28px; letter-spacing: -0.02em; }
 .timeline-row h3 { font-size: 20px; margin-bottom: 8px; }
 .timeline-row p { font-size: 14.5px; }
-.team { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-@media (max-width: 960px) { .team { grid-template-columns: 1fr 1fr; } }
+.team { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 920px; margin: 0 auto; }
+@media (max-width: 820px) { .team { grid-template-columns: 1fr 1fr; max-width: none; } }
 @media (max-width: 520px) { .team { grid-template-columns: 1fr; } }
-.teammate { border-radius: var(--radius); border: 1px solid var(--line-soft); overflow: hidden; background: var(--bg-elev); transition: border-color .3s var(--ease), transform .3s var(--ease); }
+.teammate { border-radius: var(--radius); border: 1px solid var(--line-soft); overflow: hidden; background: var(--bg-elev); transition: border-color .3s var(--ease), transform .3s var(--ease); text-align: center; }
 .teammate:hover { border-color: var(--line); transform: translateY(-3px); }
 .teammate-portrait { aspect-ratio: 3/4; position: relative; overflow: hidden; }
 .teammate-portrait::before { content: attr(data-initials); position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--font-display); font-size: 88px; color: oklch(1 0 0 / 0.9); letter-spacing: -0.04em; }
@@ -520,9 +520,12 @@ section { padding: 120px 0; position: relative; }
 .p-f { background: linear-gradient(135deg, oklch(0.3 0.08 80), oklch(0.22 0.06 60)); }
 .p-g { background: linear-gradient(135deg, oklch(0.32 0.12 220), oklch(0.22 0.08 200)); }
 .p-h { background: linear-gradient(135deg, oklch(0.3 0.1 350), oklch(0.22 0.08 20)); }
-.teammate-body { padding: 18px 20px 22px; border-top: 1px solid var(--line-soft); }
+.teammate-body { padding: 18px 20px 22px; border-top: 1px solid var(--line-soft); display: flex; flex-direction: column; align-items: center; }
 .teammate-body h3 { font-family: var(--font-display); font-size: 18px; letter-spacing: -0.01em; font-weight: 500; }
 .teammate-body .role { font-family: var(--font-mono); font-size: 11px; color: var(--ink-dim); letter-spacing: 0.14em; text-transform: uppercase; margin-top: 6px; }
+.teammate-linkedin { display: inline-flex; align-items: center; justify-content: center; margin-top: 12px; width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--line-soft); color: var(--ink-dim); transition: color .2s var(--ease), border-color .2s var(--ease); }
+.teammate-linkedin:hover { color: var(--ink); border-color: var(--line); }
+.teammate-linkedin svg { width: 15px; height: 15px; }
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
 @media (max-width: 820px) { .two-col { grid-template-columns: 1fr; } }
 .list-card { padding: 40px; border-radius: var(--radius-lg); border: 1px solid var(--line-soft); background: var(--bg-elev); }
