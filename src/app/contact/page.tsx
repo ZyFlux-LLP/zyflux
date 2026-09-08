@@ -11,14 +11,14 @@ function SocialArrow() {
 }
 
 export const metadata: Metadata = {
-  title: 'Contact — Zyflux',
+  title: 'Contact | Zyflux',
   description:
-    'Contact Zyflux LLP — a product engineering studio in Navi Mumbai. Reach us at team@zyflux.com or call +91 70213 09381. Typical projects start within two weeks.',
+    'Contact Zyflux LLP, a product engineering studio in Navi Mumbai. Reach us at team@zyflux.com or call +91 70213 09381. Typical projects start within two weeks.',
   alternates: { canonical: '/contact' },
   openGraph: {
-    title: 'Contact — Zyflux',
+    title: 'Contact | Zyflux',
     description:
-      'Contact Zyflux LLP — a product engineering studio in Navi Mumbai. Reach us at team@zyflux.com or call +91 70213 09381. Typical projects start within two weeks.',
+      'Contact Zyflux LLP, a product engineering studio in Navi Mumbai. Reach us at team@zyflux.com or call +91 70213 09381. Typical projects start within two weeks.',
     url: 'https://zyflux.com/contact',
   },
 }

@@ -59,7 +59,7 @@ export default function ContactForm() {
       <div className="success show">
         <div className="tick">✓</div>
         <h3>Brief received.</h3>
-        <p>You&apos;ll hear back within one business day — usually within 2 hours IST.</p>
+        <p>You&apos;ll hear back within one business day, usually within 2 hours IST.</p>
       </div>
     )
   }
@@ -158,7 +158,7 @@ export default function ContactForm() {
       </div>
 
       {error && (
-        <p style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: 'oklch(0.65 0.18 25)', marginTop: 8 }}>
+        <p style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: 'oklch(0.85 0 0)', marginTop: 8 }}>
           {error}
         </p>
       )}

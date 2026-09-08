@@ -130,7 +130,7 @@ export async function POST(req: Request) {
       from:    'Zyflux Leads <leads@zyflux.com>',
       to:      [NOTIFY_EMAIL],
       replyTo: email.trim(),
-      subject: `New brief — ${name}${company ? ` · ${company}` : ''}`,
+      subject: `New brief: ${name}${company ? ` · ${company}` : ''}`,
       html:    buildEmail({ name, email, company, role, projectType, budget, brief }),
     }).catch((e) => errors.push(`Email: ${(e as Error).message}`))
   }

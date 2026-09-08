@@ -9,11 +9,11 @@ const faqs = [
   },
   {
     q: "What's a typical team look like?",
-    a: 'A pod of 3–5 people embedded with your team: one product lead, one designer, two to three engineers. No separate account manager — the pod lead is your primary contact.',
+    a: 'A pod of 3–5 people embedded with your team: one product lead, one designer, two to three engineers. No separate account manager: the pod lead is your primary contact.',
   },
   {
     q: 'Do you work with early-stage startups?',
-    a: 'Yes — roughly a third of our work is with pre-Series-A startups. We offer a reduced-rate MVP engagement for well-funded early teams.',
+    a: 'Yes, roughly a third of our work is with pre-Series-A startups. We offer a reduced-rate MVP engagement for well-funded early teams.',
   },
   {
     q: 'Can you join an existing codebase?',

@@ -4,14 +4,14 @@ import Image from 'next/image'
 import CalButton from '@/components/CalButton'
 
 export const metadata: Metadata = {
-  title: 'Zyflux — Engineering the flow of modern software',
+  title: 'Zyflux: Engineering the flow of modern software',
   description:
-    'Zyflux is a product engineering studio in Navi Mumbai — building custom ERP, CRM, ecommerce platforms, and Flutter apps for startups and enterprises.',
+    'Zyflux is a product engineering studio in Navi Mumbai, building custom ERP, CRM, ecommerce platforms, and Flutter apps for startups and enterprises.',
   alternates: { canonical: '/' },
   openGraph: {
-    title: 'Zyflux — Engineering the flow of modern software',
+    title: 'Zyflux: Engineering the flow of modern software',
     description:
-      'Zyflux is a product engineering studio in Navi Mumbai — building custom ERP, CRM, ecommerce platforms, and Flutter apps for startups and enterprises.',
+      'Zyflux is a product engineering studio in Navi Mumbai, building custom ERP, CRM, ecommerce platforms, and Flutter apps for startups and enterprises.',
     url: 'https://zyflux.com',
   },
 }
@@ -46,20 +46,9 @@ export default function Home() {
       {/* HERO */}
       <section className="hero">
         <div className="hero-mesh">
-          <div className="hero-grid-bg" />
           <div className="hero-blob b1" data-parallax="0.04" />
           <div className="hero-blob b2" data-parallax="-0.03" />
           <div className="hero-blob b3" data-parallax="0.06" />
-        </div>
-        <div className="hero-orbit" data-parallax="-0.02">
-          <div className="ring" />
-          <div className="ring ring-2" />
-          <div className="ring ring-3" />
-          <div className="ring-glow" />
-          <div className="core" />
-          <div className="dot d1" />
-          <div className="dot d2" />
-          <div className="dot d3" />
         </div>
         <div className="container hero-inner">
           <div className="hero-grid-layout">
@@ -73,7 +62,7 @@ export default function Home() {
               </h1>
             </div>
             <div className="hero-side">
-              <p>We design, build, and ship digital products — ERP, CRM, ecommerce, and apps — for teams that care about craft and velocity.</p>
+              <p>We design, build, and ship digital products (ERP, CRM, ecommerce, and apps) for teams that care about craft and velocity.</p>
               <div className="hero-cta">
                 <CalButton className="btn btn-primary magnetic">
                   Schedule a call
@@ -119,7 +108,7 @@ export default function Home() {
               </div>
               <a href="#" className="trust-item" aria-label="Trustpilot">
                 <span className="logo">
-                  <svg viewBox="0 0 24 24" fill="oklch(0.78 0.16 150)">
+                  <svg viewBox="0 0 24 24" fill="oklch(0.78 0 0)">
                     <polygon points="12,2 14.8,8.6 22,9.3 16.5,14.1 18.2,21.2 12,17.3 5.8,21.2 7.5,14.1 2,9.3 9.2,8.6" />
                   </svg>
                   Trustpilot
@@ -128,8 +117,8 @@ export default function Home() {
               </a>
               <a href="#" className="trust-item" aria-label="Clutch">
                 <span className="logo">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="oklch(0.78 0.14 220)" strokeWidth="2">
-                    <circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="3.5" fill="oklch(0.78 0.14 220)" />
+                  <svg viewBox="0 0 24 24" fill="none" stroke="oklch(0.78 0 0)" strokeWidth="2">
+                    <circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="3.5" fill="oklch(0.78 0 0)" />
                   </svg>
                   Clutch
                 </span>
@@ -141,16 +130,6 @@ export default function Home() {
         <div className="hero-scroll"><span>Scroll</span><div className="bar" /></div>
       </section>
 
-      {/* MARQUEE */}
-      <div className="marquee">
-        <div className="marquee-track">
-          {['ERP systems','CRM platforms','Ecommerce','Landing pages','Flutter apps',
-            'ERP systems','CRM platforms','Ecommerce','Landing pages','Flutter apps'].map((item, i) => (
-            <div key={i} className="marquee-item">{item}<span /></div>
-          ))}
-        </div>
-      </div>
-
       {/* SERVICES */}
       <section id="services">
         <div className="container">
@@ -159,7 +138,7 @@ export default function Home() {
               <div className="eyebrow" style={{ marginBottom: 22 }}>Services</div>
               <h2>What we do,<br />end to end.</h2>
             </div>
-            <p>Zyflux operates as an extended engineering partner — one team across product strategy, design, and delivery. Pick a single lane or hand off the whole stack.</p>
+            <p>Zyflux operates as an extended engineering partner: one team across product strategy, design, and delivery. Pick a single lane or hand off the whole stack.</p>
           </div>
 
           <div className="services reveal-stagger">
@@ -177,7 +156,7 @@ export default function Home() {
               </div>
               <div>
                 <h3>ERP Systems</h3>
-                <p>Custom enterprise resource platforms — inventory, finance, HR, procurement — unified into one operating surface tailored to your workflow.</p>
+                <p>Custom enterprise resource platforms (inventory, finance, HR, procurement) unified into one operating surface tailored to your workflow.</p>
                 <div className="service-tags"><span>Modular</span><span>Multi-tenant</span><span>Role-based access</span><span>Audit-ready</span></div>
               </div>
             </article>
@@ -196,7 +175,7 @@ export default function Home() {
               </div>
               <div>
                 <h3>CRM Platforms</h3>
-                <p>Sales pipelines, customer lifecycle, and support desks in one place. Built around how your team actually sells — not a rigid SaaS template.</p>
+                <p>Sales pipelines, customer lifecycle, and support desks in one place. Built around how your team actually sells, not a rigid SaaS template.</p>
                 <div className="service-tags"><span>Pipeline automation</span><span>Email sync</span><span>Analytics</span><span>Integrations</span></div>
               </div>
             </article>
@@ -213,7 +192,7 @@ export default function Home() {
               </div>
               <div>
                 <h3>Web Platforms</h3>
-                <p>Production-grade web platforms — including ecommerce storefronts and high-conversion landing pages. Performance-budgeted, accessible, SEO-ready.</p>
+                <p>Production-grade web platforms, including ecommerce storefronts and high-conversion landing pages. Performance-budgeted, accessible, SEO-ready.</p>
                 <div className="service-tags"><span>Next.js</span><span>React</span><span>TypeScript</span><span>Supabase</span><span>Shopify</span></div>
               </div>
             </article>
@@ -274,7 +253,7 @@ export default function Home() {
             <div className="process-step">
               <div className="process-num">/ 02</div>
               <h3>Design in code</h3>
-              <p>Prototypes in the real runtime — no Figma-to-code translation debt. You click what you&apos;ll ship.</p>
+              <p>Prototypes in the real runtime: no Figma-to-code translation debt. You click what you&apos;ll ship.</p>
             </div>
             <div className="process-step">
               <div className="process-num">/ 03</div>
@@ -307,8 +286,8 @@ export default function Home() {
               </div>
               <div className="showcase-body">
                 <div className="showcase-meta"><span>Media & Publishing · 2024</span><ArrowIcon /></div>
-                <h3>Dainik Nirnayak CMS — newspaper production platform</h3>
-                <p>Digitized the entire newspaper production and ad billing workflow — editorial uploads, real-time approvals, PDF generation, and GST invoicing in one dashboard.</p>
+                <h3>Dainik Nirnayak CMS: newspaper production platform</h3>
+                <p>Digitized the entire newspaper production and ad billing workflow: editorial uploads, real-time approvals, PDF generation, and GST invoicing in one dashboard.</p>
               </div>
             </a>
             <a href="https://ind.misscallpay.com/" target="_blank" rel="noopener noreferrer" className="showcase-card">
@@ -317,8 +296,8 @@ export default function Home() {
               </div>
               <div className="showcase-body">
                 <div className="showcase-meta"><span>Fintech · 2019</span><ArrowIcon /></div>
-                <h3>MissCallPay — cashless payment for rural India</h3>
-                <p>Full payment backend enabling digital transactions via a simple missed call — no smartphone or internet needed. MahaStartupWeek 2019 award winner.</p>
+                <h3>MissCallPay: cashless payment for rural India</h3>
+                <p>Full payment backend enabling digital transactions via a simple missed call: no smartphone or internet needed. MahaStartupWeek 2019 award winner.</p>
               </div>
             </a>
             <a href="https://www.zarajamesstudio.com/" target="_blank" rel="noopener noreferrer" className="showcase-card">
@@ -327,7 +306,7 @@ export default function Home() {
               </div>
               <div className="showcase-body">
                 <div className="showcase-meta"><span>Interior Design · 2024</span><ArrowIcon /></div>
-                <h3>Zara James Studio — luxury interior design portfolio</h3>
+                <h3>Zara James Studio: luxury interior design portfolio</h3>
                 <p>Bespoke portfolio for a Mumbai-based luxury residential interior design firm. Image-first case study layout with refined typography and dark-mode toggle.</p>
               </div>
             </a>
@@ -337,7 +316,7 @@ export default function Home() {
               </div>
               <div className="showcase-body">
                 <div className="showcase-meta"><span>Sports & Sailing · 2025</span><ArrowIcon /></div>
-                <h3>Mumbai Meridians — ISL sailing franchise</h3>
+                <h3>Mumbai Meridians: ISL sailing franchise</h3>
                 <p>Multi-page website for India&apos;s ISL 2026 sailing franchise with live event countdown, junior academy enrollment, and team roster.</p>
               </div>
             </a>
@@ -351,7 +330,7 @@ export default function Home() {
           <div className="cta-band reveal">
             <div className="eyebrow" style={{ justifyContent: 'center', marginBottom: 24 }}>Ready when you are</div>
             <h2>Have a product in mind?<br />Let&apos;s get into the flow.</h2>
-            <p>Typical engagements start within two weeks. Tell us the shape of the problem — we&apos;ll send back a plan.</p>
+            <p>Typical engagements start within two weeks. Tell us the shape of the problem: we&apos;ll send back a plan.</p>
             <CalButton className="btn btn-primary magnetic">
               Schedule a call
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M7 17L17 7M10 7h7v7" /></svg>

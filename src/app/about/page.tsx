@@ -3,12 +3,12 @@ import Image from 'next/image'
 import CalButton from '@/components/CalButton'
 
 export const metadata: Metadata = {
-  title: 'About — Zyflux',
+  title: 'About | Zyflux',
   description:
     'Zyflux LLP is a product engineering studio founded in 2023, based in Navi Mumbai. We design and build custom ERP, CRM, ecommerce platforms, and mobile apps for product-led teams.',
   alternates: { canonical: '/about' },
   openGraph: {
-    title: 'About — Zyflux',
+    title: 'About | Zyflux',
     description:
       'Zyflux LLP is a product engineering studio founded in 2023, based in Navi Mumbai. We design and build custom ERP, CRM, ecommerce platforms, and mobile apps for product-led teams.',
     url: 'https://zyflux.com/about',
@@ -53,7 +53,7 @@ export default function AboutPage() {
             <span className="line"><span>A small studio,</span></span>
             <span className="line"><span>building serious software since 2023.</span></span>
           </h1>
-          <p className="page-hero-sub">Three co-founders, one studio — based in Navi Mumbai, working with clients across India, Europe, and the US. We pick a few engagements at a time and give them everything we have.</p>
+          <p className="page-hero-sub">Three co-founders, one studio, based in Navi Mumbai, working with clients across India, Europe, and the US. We pick a few engagements at a time and give them everything we have.</p>
         </div>
       </section>
 
@@ -62,8 +62,8 @@ export default function AboutPage() {
           <div className="about-intro reveal">
             <div><h2>Flow, not fragments.</h2></div>
             <div>
-              <p>Zyflux started as three engineers frustrated by how agencies handed off work in pieces — a Figma here, a repo there, stitched together by a project manager. We wanted to be the team that stayed in one flow, from the first whiteboard to the thousandth production release.</p>
-              <p>Today that idea is a studio. We structure every engagement as a single embedded pod: product, design, engineering, and ops — with a single weekly cadence, a single Slack channel, and a single set of metrics the whole team is held to.</p>
+              <p>Zyflux started as three engineers frustrated by how agencies handed off work in pieces: a Figma here, a repo there, stitched together by a project manager. We wanted to be the team that stayed in one flow, from the first whiteboard to the thousandth production release.</p>
+              <p>Today that idea is a studio. We structure every engagement as a single embedded pod: product, design, engineering, and ops, with a single weekly cadence, a single Slack channel, and a single set of metrics the whole team is held to.</p>
             </div>
           </div>
         </div>
@@ -79,8 +79,8 @@ export default function AboutPage() {
             <p>We wrote these after debating which ones we&apos;d be willing to turn down work over. These three made the cut.</p>
           </div>
           <div className="values reveal-stagger">
-            <div className="value"><div className="value-n">/ 01</div><h3>Ship something real every week.</h3><p>Slide decks and Figma boards age out. Shipped code compounds. Every week of a Zyflux engagement ends with something running in production — even if it&apos;s tiny.</p></div>
-            <div className="value"><div className="value-n">/ 02</div><h3>One team, one number.</h3><p>Design and engineering share the same success metric — usually a north-star product number. No handoffs, no &quot;that&apos;s a design bug, not an eng bug.&quot; Just one team pointed at the same outcome.</p></div>
+            <div className="value"><div className="value-n">/ 01</div><h3>Ship something real every week.</h3><p>Slide decks and Figma boards age out. Shipped code compounds. Every week of a Zyflux engagement ends with something running in production, even if it&apos;s tiny.</p></div>
+            <div className="value"><div className="value-n">/ 02</div><h3>One team, one number.</h3><p>Design and engineering share the same success metric, usually a north-star product number. No handoffs, no &quot;that&apos;s a design bug, not an eng bug.&quot; Just one team pointed at the same outcome.</p></div>
             <div className="value"><div className="value-n">/ 03</div><h3>Write it down.</h3><p>Every decision gets a paragraph in the doc. Every trade-off is named. Future-you, future-us, and future-your-new-hire will thank the people who wrote stuff down.</p></div>
           </div>
         </div>
@@ -93,7 +93,7 @@ export default function AboutPage() {
               <div className="eyebrow" style={{ marginBottom: 22 }}>Team</div>
               <h2>Three partners,<br />one shared vision.</h2>
             </div>
-            <p>Every engagement is led directly by a founding partner — no account managers, no hand-offs.</p>
+            <p>Every engagement is led directly by a founding partner: no account managers, no hand-offs.</p>
           </div>
           <div className="team reveal-stagger">
             {team.map((m) => (
@@ -122,8 +122,8 @@ export default function AboutPage() {
 
       <section className="quote">
         <div className="container">
-          <blockquote>&ldquo;They showed up as a team, not a vendor — and we still can&apos;t imagine shipping v2 without them.&rdquo;</blockquote>
-          <cite>— Head of Product, Ledger Corp</cite>
+          <blockquote>&ldquo;They showed up as a team, not a vendor, and we still can&apos;t imagine shipping v2 without them.&rdquo;</blockquote>
+          <cite>Head of Product, Ledger Corp</cite>
         </div>
       </section>
 

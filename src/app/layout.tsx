@@ -1,41 +1,27 @@
 import type { Metadata } from 'next'
-import { Space_Grotesk, Inter, JetBrains_Mono } from 'next/font/google'
+import { JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import ClientAnimations from '@/components/ClientAnimations'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-space-grotesk',
-  display: 'swap',
-  preload: true,
-})
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['400', '500'],
-  variable: '--font-inter',
-  display: 'swap',
-  preload: true,
-})
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
-  weight: ['400', '500'],
+  weight: ['400', '500', '600', '700'],
   variable: '--font-jetbrains',
   display: 'swap',
-  preload: false,
+  preload: true,
 })
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://zyflux.com'),
   title: {
-    default: 'Zyflux — Engineering the flow of modern software',
-    template: '%s — Zyflux',
+    default: 'Zyflux: Engineering the flow of modern software',
+    template: '%s | Zyflux',
   },
   description:
-    'Zyflux is a product engineering studio in Navi Mumbai — building custom ERP, CRM, ecommerce platforms, and Flutter apps for startups and enterprises.',
+    'Zyflux is a product engineering studio in Navi Mumbai, building custom ERP, CRM, ecommerce platforms, and Flutter apps for startups and enterprises.',
   openGraph: {
     type: 'website',
     siteName: 'Zyflux',
@@ -51,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable}`}
+      className={jetbrainsMono.variable}
       suppressHydrationWarning
       data-scroll-behavior="smooth"
     >
