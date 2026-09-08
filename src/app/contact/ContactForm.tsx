@@ -14,6 +14,7 @@ export default function ContactForm() {
   const [roleOpen, setRoleOpen] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const [renderedAt] = useState(() => Date.now())
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -29,6 +30,8 @@ export default function ContactForm() {
       projectType: typeChip,
       budget:      budgetChip,
       brief:       fd.get('brief') as string,
+      website:     fd.get('website') as string,
+      elapsedMs:   Date.now() - renderedAt,
     }
 
     try {
@@ -66,6 +69,14 @@ export default function ContactForm() {
 
   return (
     <form className="form-card" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        name="website"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, opacity: 0 }}
+      />
       <div className="form-head">
         <div className="eyebrow" style={{ marginBottom: 20 }}>New project brief</div>
         <h2>Start a conversation.</h2>

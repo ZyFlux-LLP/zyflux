@@ -102,10 +102,16 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 })
   }
 
-  const { name, email, company = '', role = '', projectType = '', budget = '', brief = '' } = body
+  const { name, email, company = '', role = '', projectType = '', budget = '', brief = '', website = '', elapsedMs = '' } = body
 
   if (!name?.trim() || !email?.trim()) {
     return NextResponse.json({ error: 'Name and email are required' }, { status: 400 })
+  }
+
+  // Bot check: honeypot field filled, or submitted faster than a human could fill the form.
+  // Respond as if it succeeded so bots get no useful signal to adapt to.
+  if (website.trim() || Number(elapsedMs) < 2500) {
+    return NextResponse.json({ ok: true })
   }
 
   const [firstname, ...rest] = name.trim().split(' ')
